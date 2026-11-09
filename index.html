@@ -1,6 +1,7 @@
-<!doctype html>
-<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>산림탄소상쇄사업 업무지도 검토 및 행정부담 조사 v0.12</title>
+<!DOCTYPE html>
+
+<html lang="ko"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>산림탄소상쇄사업 업무지도 검토 및 행정부담 조사 v0.31</title>
 <style>
 :root{--ink:#173f3a;--muted:#6c7975;--line:#dce4e1;--bg:#f6f8f7;--accent:#236d5f;--white:#fff}
 *{box-sizing:border-box} body{margin:0;background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:#18211e}
@@ -25,7 +26,7 @@ h1{font-size:30px;line-height:1.35;color:var(--ink);margin:0 0 18px} h2{font-siz
 .panel{padding:22px;margin-bottom:16px}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:13px} .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
 @media(max-width:760px){.grid2,.grid3{grid-template-columns:1fr}.coverCard{padding:24px}h1{font-size:25px}.navwrap{display:flex;overflow-x:auto}.navstep{min-width:118px;overflow:visible;text-overflow:clip}}
-label{display:block;font-size:13px;color:#52605b;margin-bottom:12px}.qtitle{display:inline-flex;align-items:center;gap:3px;font-weight:600}.requiredStar{color:#d93025;font-weight:900} input,select,textarea{width:100%;margin-top:6px;border:1px solid var(--line);border-radius:10px;padding:11px;background:#fff}
+label{display:block;font-size:13px;color:#52605b;margin-bottom:12px}.qtitle{display:inline-flex;align-items:center;gap:3px;font-size:15px;line-height:1.5;font-weight:800;color:#173f3a}.requiredStar{color:#d93025;font-weight:900}.experienceQuestion{font-size:15px;line-height:1.5;font-weight:800;color:#173f3a;margin:20px 0 10px}.experienceLabel{font-size:15px;line-height:1.5;font-weight:800;color:#173f3a;margin-top:18px}.experienceLabel textarea,.experienceLabel select{font-size:14px;font-weight:400;color:#18211e} input,select,textarea{width:100%;margin-top:6px;border:1px solid var(--line);border-radius:10px;padding:11px;background:#fff}
 
 .checkline{display:flex;gap:9px;align-items:flex-start;margin:12px 0;color:#34413d;font-size:14px;line-height:1.55} .checkline input{width:auto;margin-top:4px}
 .pageNav{display:flex;justify-content:space-between;gap:10px;margin:22px 0 40px}
@@ -37,169 +38,424 @@ label{display:block;font-size:13px;color:#52605b;margin-bottom:12px}.qtitle{disp
 .phaseitems{position:relative;padding-left:26px}.phaseitems:before{content:"";position:absolute;left:11px;top:10px;bottom:10px;width:2px;background:#cdd8d4}
 .row,.taskCard{background:#fff;border:1px solid var(--line);border-radius:13px;padding:13px;margin-bottom:10px} .row{position:relative;cursor:pointer} .row:before{content:"";position:absolute;left:-20px;top:19px;width:9px;height:9px;border-radius:50%;background:var(--ink);box-shadow:0 0 0 4px var(--bg)}
 .rowtop{display:flex;gap:8px;align-items:center;flex-wrap:wrap} .id{font-weight:800;color:#95a19d} .row h3{font-size:15px;margin:0} .arrow{font-size:12px;color:var(--muted);margin-top:5px}
-.phaseTabs{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px} .phaseTab{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 11px;font-size:12px} .phaseTab.active{background:var(--ink);color:#fff}
-.infoGrid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:12px 0} @media(max-width:700px){.infoGrid{grid-template-columns:1fr}} .ibox{border:1px solid var(--line);border-radius:10px;padding:11px;background:#fff} .ibox small{display:block;font-weight:800;color:var(--ink);margin-bottom:5px}
-.choices{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0 12px} .choice{border:1px solid var(--line);background:#fff;border-radius:9px;padding:8px 10px} .choice.sel{background:var(--ink);color:#fff;border-color:var(--ink)}
+.phaseTabs{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px} .phaseTab{border:1px solid #d7e3df;background:#f5f8f7;border-radius:999px;padding:8px 11px;font-size:12px} .phaseTab.active{background:var(--ink);color:#fff}
+.infoGrid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:13px 0 17px;padding:11px;background:#f7faf9;border:1px solid #e3ebe8;border-radius:12px} @media(max-width:700px){.infoGrid{grid-template-columns:1fr}} .ibox{border:1px solid #cfdcd7;border-radius:10px;padding:11px;background:#fff;line-height:1.55} .ibox small{display:block;font-weight:800;color:var(--ink);margin-bottom:6px;font-size:12px}
+.choices{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0 12px} .choice{border:1px solid #cfe0da;background:#f2f7f5;color:#29463f;border-radius:9px;padding:8px 10px;transition:.15s ease} .choice:hover{background:#e7f1ed;border-color:#a9c9bf} .choice.sel{background:var(--ink);color:#fff;border-color:var(--ink)}
 .tasklist{display:grid;gap:7px} .taskpick{display:flex;gap:8px;align-items:flex-start;border:1px solid var(--line);border-radius:10px;padding:9px;background:#fff} .taskpick input{width:auto;margin-top:3px}
 .note{font-size:12px;color:var(--muted);line-height:1.55} .saveNote{font-size:12px;color:#477266;margin:8px 0}
 .completeBox{max-width:700px;margin:80px auto;text-align:center;padding:42px} .completeBox h2{font-size:27px} .checkmark{font-size:42px}
 .submitstate{display:none;margin-top:12px;padding:10px;border-radius:10px;font-size:13px} .submitstate.warn{display:block;background:#fff7e8;color:#7c5b17}
 
-/* v0.12 업무지도 설문형 UI */
+/* v0.13 업무지도 설문형 UI */
 .workflowSummary{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:18px}
 .workflowSummary .phasegroup{margin-bottom:10px}
 .overallQuestion{background:#f1f6f4;border:1px solid #d5e4de;border-radius:14px;padding:18px;margin:18px 0}
 .scaleRow{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:12px 0}
 @media(max-width:760px){.scaleRow{grid-template-columns:1fr}}
-.scaleBtn{border:1px solid var(--line);background:#fff;border-radius:10px;padding:11px 8px;line-height:1.3}
+.scaleBtn{border:1px solid #cfe0da;background:#f2f7f5;color:#29463f;border-radius:10px;padding:11px 8px;line-height:1.3}
 .scaleBtn.sel{background:var(--ink);color:#fff;border-color:var(--ink)}
 .phaseSurvey{margin:24px 0}
 .phaseSurveyHead{display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:12px;margin-bottom:10px;font-weight:800}
 .requiredHint{font-size:12px;color:#7a4d17;background:#fff7e8;border:1px solid #f0dfb4;border-radius:10px;padding:10px 12px;margin:12px 0}
 .taskCard.requiredMissing{border-color:#d93025;box-shadow:0 0 0 2px rgba(217,48,37,.08)}
-.taskCard .taskQuestion{font-weight:800;margin:15px 0 7px}
+.taskCard .taskQuestion{font-weight:800;margin:18px -13px 8px;padding:16px 13px 0;border-top:1px dashed #cfdcd7}
 .taskCard .choices{margin-bottom:14px}
+.subflows{display:grid;gap:10px;margin:13px 0 15px}
+.subflow{border:1px solid #d5e4de;background:#f8fbfa;border-radius:12px;padding:13px}
+.subflowHead{font-weight:800;color:var(--ink);margin-bottom:7px}
+.subflowLine{font-size:13px;line-height:1.65;color:#394641}
+.subflowLine b{color:#1f5f53}
+
 .workflowCounter{position:sticky;bottom:12px;margin-left:auto;width:max-content;background:var(--ink);color:#fff;border-radius:999px;padding:8px 12px;font-size:12px;box-shadow:0 5px 18px rgba(0,0,0,.12);z-index:5}
 
+
+
+/* v0.20 — 읽는 설명과 응답할 질문 시각적 분리 */
+.section-label{font-weight:800;color:#173f3a;margin-bottom:12px;font-size:16px}
+.irb-original{border:1px solid #dbe4e0;border-radius:12px;background:#fafcfb;padding:20px;line-height:1.85;font-size:14px;overflow-wrap:anywhere}
+.irb-original .irb-h{font-weight:800;color:#173f3a;font-size:16px;margin:22px 0 10px}
+.irb-original .irb-p{margin:10px 0;white-space:pre-wrap}
+.irb-original .irb-table{margin:14px 0;border:1px solid #dbe4e0;border-radius:8px;padding:8px}
+.irb-table-row{padding:5px 4px;border-bottom:1px solid #e8ecea}
+.irb-table-row:last-child{border-bottom:0}
+.privacy-text{white-space:pre-wrap}
+.answer-panel{border-left:4px solid #236d5f;background:white}
+.info-part{background:#f0f5f3;border-radius:12px;padding:15px;margin-bottom:16px}
+.answer-part{background:white;border-top:2px solid #dbe4e0;padding-top:12px;margin-top:14px}
+.taskCard .info-part .infoGrid{margin-bottom:0}
+.taskCard .taskQuestion{margin:0 0 10px;padding:0;border:0}
+.taskCard .detailToggle{display:block;width:100%;text-align:left;border:1px solid #cbdcd5;border-radius:10px;padding:10px 12px;background:white;color:#1b5447;font-weight:800}
+.taskCard details[open] .detailToggle{margin-bottom:10px}
+.panel .experienceQuestion{padding-top:14px;border-top:1px solid #e7eeeb}
+.panel .experienceQuestion:first-of-type{border-top:0}
+#completionChecklist .status-line{display:flex;justify-content:space-between;gap:20px;padding:12px 0;border-bottom:1px solid #e7eeeb}
+#completionChecklist .good{color:#246f58;font-weight:700} #completionChecklist .bad{color:#a34434;font-weight:700}
+.intro-list{line-height:1.9;padding-left:22px}
+@media(max-width:760px){.irb-original{padding:13px}.info-part{padding:12px}}
+
+.navwrap{display:flex;overflow-x:auto;grid-template-columns:none}.navstep{flex:0 0 auto;min-width:112px;font-size:12px}
+.coverGuide{margin:14px 0 18px;color:#66736e;font-size:12px;line-height:1.65}.coverGuide p{font-size:12px;line-height:1.65;margin:5px 0}.coverGuide strong{font-weight:700;color:#52605b}
+
+/* v0.24 - 동의 문서 접기·펼치기 및 개인정보 문서 가독성 */
+#cover .coverCard strong {font-weight:750}
+#consent .section-label {font-weight:800; letter-spacing:0;}
+#consent .consent-document {margin:12px 0 16px; border:1px solid #cfded8; border-radius:12px; overflow:hidden; background:#fafcfb;}
+#consent .consent-document > summary {list-style:none; cursor:pointer; padding:15px 18px; font-size:15px; font-weight:750; color:#173f3a; display:flex; gap:10px; justify-content:space-between; align-items:center;}
+#consent .consent-document > summary::-webkit-details-marker {display:none}
+#consent .consent-document > summary::before {content:'▸'; color:#236d5f; margin-right:3px;}
+#consent .consent-document[open] > summary::before {content:'▾';}
+#consent .consent-document > summary .expand-hint {font-size:15px; font-weight:650; color:#52605b; margin-left:auto; white-space:nowrap;}
+#consent .consent-document[open] > summary .expand-hint {font-size:0;}
+#consent .consent-document[open] > summary .expand-hint::after {content:'접기';font-size:15px;}
+#consent .consent-document .irb-original {border:0; border-top:1px solid #dbe4e0; border-radius:0; padding:18px; background:#fff; line-height:1.72; letter-spacing:normal; word-spacing:normal;}
+#consent .privacy-formatted p {white-space:normal; margin:0; padding:0;}
+#consent .privacy-formatted .privacy-heading {font-weight:750; font-size:15px; color:#173f3a; margin:18px 0 8px;}
+#consent .privacy-formatted .privacy-subheading {font-weight:700; margin:12px 0 6px;}
+#consent .privacy-formatted .privacy-paragraph {margin:5px 0 10px;}
+#consent .privacy-formatted .privacy-bullet {margin:0 0 2px; padding-left:1em; text-indent:-1em; line-height:1.6;}
+#consent .consent-choice {margin-top:12px;}
+@media(max-width:560px){#consent .consent-document > summary {flex-wrap:wrap} #consent .consent-document > summary .expand-hint{white-space:normal}}
+
+/* v0.25 - 설명문은 접기·펼치기, 동의 확인 문구는 항상 노출 */
+#consent .consent-confirmation {margin:16px 0 10px; padding:0 2px; line-height:1.7; letter-spacing:normal; word-spacing:normal;}
+#consent .consent-confirmation .irb-h {font-weight:750; margin:0 0 10px;}
+#consent .research-confirmation .irb-p {margin:7px 0;}
+#consent .research-confirmation .consent-statement {font-weight:400;}
+#consent .privacy-confirmation .privacy-heading {font-weight:750; font-size:15px; margin:0 0 8px;}
+#consent .privacy-confirmation .privacy-paragraph {margin:0 0 10px;}
+
+/* v0.27: consent disclosure labels (respondent information remains visible) */
+#consent .consent-document > summary .expand-hint {font-size:15px;font-weight:650;}
+#consent .consent-document[open] > summary .expand-hint::after {font-size:15px;}
+
+.other-input{width:100%;box-sizing:border-box;margin-top:9px;padding:11px 12px;font:inherit;border:1px solid #c6d0d6;border-radius:8px;background:#fff}
+
+/* v0.31: consent validation dialog rendered in-page instead of browser alert */
+.consent-modal-backdrop{position:fixed;inset:0;background:rgba(18,35,29,.54);z-index:9999;display:none;align-items:center;justify-content:center;padding:18px}
+.consent-modal-backdrop.show{display:flex}
+.consent-modal{width:min(100%,460px);background:white;border-radius:16px;padding:25px;box-shadow:0 15px 50px rgba(0,0,0,.2)}
+.consent-modal h3{font-size:20px;margin:0 0 12px;color:#173f3a}
+.consent-modal p{font-size:15px;line-height:1.7;margin:0 0 18px;color:#263b33}
+.consent-modal button{min-width:100px;float:right}
+.consent-modal:after{content:'';display:block;clear:both}
+.needs-attention{outline:3px solid #c4772c!important;outline-offset:4px;border-radius:8px;transition:outline-color .2s}
+#consentAlertMessage{max-height:50vh;overflow-y:auto}
+</style><style>
+/* v0.23: 동의서 문서 서식만 정리, 승인 문구는 유지 */
+#consent .section-label{font-size:17px;font-weight:750;letter-spacing:-.025em}
+#consent .irb-original{font-size:14px;line-height:1.8;letter-spacing:-.02em;word-break:keep-all;overflow-wrap:break-word;background:#fff;border:0;padding:4px 2px}
+#consent .irb-original .irb-p{font-size:14px;line-height:1.8;margin:9px 0;font-weight:400}
+#consent .irb-original .irb-h{font-size:15px;font-weight:750;line-height:1.7;letter-spacing:-.02em;margin:22px 0 9px}
+#consent .irb-original .consent-statement{font-weight:400;font-size:14px;line-height:1.85;margin:10px 0;padding-left:2px}
+#consent .irb-original .consent-question{font-size:15px;font-weight:750;margin:22px 0 10px}
+#consent .privacy-text{white-space:pre-line;line-height:1.8;margin-bottom:12px;letter-spacing:-.018em}
+#consent .consent-choice{display:flex;flex-wrap:wrap;gap:14px 30px;margin:8px 0 16px;padding:12px 16px;border:1px solid #dce4e1;border-radius:10px;background:#f8faf9}
+#consent .consent-choice .checkline{display:flex;align-items:center;gap:9px;margin:0;font-size:15px;font-weight:600;cursor:pointer}
+#consent .consent-choice input{width:18px;height:18px;margin:0;accent-color:#236d5f}
+#consent .consent-footnote{font-size:13px;color:#52605b;line-height:1.6;margin:4px 0 12px}
+#consent .irb-table{border:0;padding:0;margin:10px 0 18px}
+#consent .irb-table-row{border:0;padding:0}
 </style></head>
 <body>
-
-<section id="cover" class="screen active">
+<section class="screen active" id="cover">
 <div class="wrap cover"><div class="coverCard">
-<div class="kicker">산림탄소상쇄사업 업무지도 검토 및 행정부담 조사</div>
-<h1>산림탄소상쇄사업의 실제 업무는<br>어떻게 이루어지고 있나요?</h1>
+<h1>산림탄소상쇄사업 업무지도 검토 및 행정부담 조사</h1>
 <p>안녕하세요. 건국대학교 산림조경학과 박사과정 송승현입니다.</p>
-<p>저는 현재 <b>「산림탄소상쇄제도 사업참여자의 행정부담 완화를 위한 AI 기반 업무지원 플랫폼 개발」</b> 연구를 수행하고 있습니다.</p>
-<p>본 연구는 산림탄소상쇄사업을 준비하고 등록·관리하는 과정을 <b>보다 쉽고 편리하게 지원할 수 있는 디지털 업무지원 플랫폼</b>을 개발하는 것을 목적으로 합니다.</p>
-<p>플랫폼을 설계하기에 앞서 사업자와 실무자가 실제로 어떤 업무를 어떤 순서로 수행하는지 파악하고, 그 과정에서 어떤 업무를 디지털로 지원할 수 있을지 확인하고자 합니다.</p>
-<div class="notice">현재 업무지도는 운영표준, 방법론, 사업계획서 작성 가이드북 및 관련 서식을 바탕으로 연구자가 임시로 구성한 초안입니다. 실제 업무 경험을 기준으로 순서가 다른 부분, 빠진 업무, 수행주체가 다른 부분, 반복·보완되는 업무 등을 자유롭게 알려주세요.</div>
-<p><b>예상 검토시간: 약 10~15분</b></p>
+<p>저는 현재 <strong>「산림탄소상쇄제도 사업참여자의 행정부담 완화를 위한 AI 기반 업무지원 플랫폼 개발」</strong> 연구를 수행하고 있습니다.</p>
+<p>본 연구는 산림탄소상쇄사업을 준비하고 등록·관리하는 과정을 보다 쉽고 편리하게 지원할 수 있는 디지털 업무지원 플랫폼을 개발하는 것을 목적으로 합니다.</p>
+<p>이를 위해 본 조사에서는 연구자가 작성한 산림탄소상쇄사업 업무지도 초안을 검토하여 실제 업무흐름을 도출하고, 업무 수행 과정에서 경험하는 어려움 및 디지털 업무지원 수요를 확인하고자 합니다.</p>
+<p><strong>예상 소요시간: 약 20분</strong></p>
 <button class="primary" id="startBtn" type="button">검토 시작하기</button>
-<div class="meta"><b>연구자</b> 송승현 · 건국대학교 산림조경학과 박사과정 / 산림사회학연구실<br>
-<b>지도교수</b> 김재현<br><b>문의</b> song0512@konkuk.ac.kr<br><br>
-본 연구는 <b>정인욱학술재단의 연구비 지원</b>을 받아 수행되고 있습니다.</div>
+<div class="meta">연구책임자: 김재현 교수 (건국대학교 산림조경학과)<br/>연구담당자: 송승현 (건국대학교 산림조경학과 박사과정)<br/>IRB 승인번호: KKUIRB-202611-HR-374<br/><br/>본 연구는 정인욱학술장학재단의 지원을 받아 수행됩니다.</div>
 </div></div>
 </section>
+<div class="topnav" id="topnav" style="display:none"><div class="navwrap" id="navwrap"></div></div>
+<section class="screen" id="consent"><div class="wrap"><div class="sectionHead"><h2>연구 참여 동의</h2><p>아래 IRB 승인 설명문과 동의서를 충분히 확인한 후 참여 여부를 결정해 주세요.</p></div>
+<div class="panel"><div class="section-label">① 연구대상자 설명서 및 온라인 연구 참여 동의서</div><p class="note">IRB 승인번호: KKUIRB-202611-HR-374 · 연구대상자용 설명문 및 동의서 ver.1.0</p>
+<details class="consent-document" id="researchDocument"><summary>연구대상자 설명문 및 동의서 전문 <span class="expand-hint">펼쳐서 확인하기</span></summary><div class="irb-original"><p class="irb-p">연구대상자용 설명문 및 동의서 ver.1.0</p>
+<p class="irb-p">(인간대상연구용)</p>
+<p class="irb-h">연구대상자 설명서</p>
+<p class="irb-p">연구과제명 : 산림탄소상쇄제도 사업참여자의 행정부담 완화를 위한 AI 기반 업무지원 플랫폼 개발</p>
+<p class="irb-p">본 연구는 산림탄소상쇄사업을 실제로 수행하거나 지원한 경험이 있는 실무자의 업무 경험을 바탕으로 산림탄소상쇄사업의 실제 업무흐름과 업무 수행 과정에서의 어려움, 디지털 업무지원 수요를 파악하기 위한 연구입니다. 귀하는 본 연구에 참여할 것인지 여부를 결정하기 전에, 설명서와 동의서를 신중하게 읽어보셔야 합니다. 이 연구가 왜 수행되며, 무엇을 수행하는지 귀하가 이해하는 것이 중요합니다. 이 연구는 건국대학교 산림조경학과 김재현 교수가 연구책임자로 수행하며, 송승현 박사과정생이 연구담당자로 참여합니다. 연구와 관련하여 궁금한 점이 있으면 연구담당자가 자세히 설명해 드릴 것입니다.</p>
+<p class="irb-p">이 연구는 자발적으로 참여 의사를 밝히신 분에 한하여 수행될 것입니다. 다음 내용을 신중히 읽어 보신 후 참여 의사를 밝혀 주시길 바라며, 필요하다면 가족이나 친구들과 의논해 보십시오. 만일 어떠한 질문이 있다면 담당 연구원이 자세하게 설명해 줄 것입니다.</p>
+<p class="irb-p">귀하의 서명은 귀하가 본 연구에 대해 그리고 위험성에 대해 설명을 들었음을 의미하며, 이 문서에 대한 귀하의 서명은 귀하께서 자신(또는 법정대리인)이 본 연구에 참가를 원한다는 것을 의미합니다.</p>
+<p class="irb-p">본 연구는 온라인 설문조사와 후속 심층인터뷰로 구성됩니다. 온라인 설문조사는 전자적 동의를 통해 참여하며, 후속 심층인터뷰에 참여하는 경우에는 별도의 서면동의를 받습니다.</p>
+<p class="irb-h">1. 연구의 배경과 목적</p>
+<div class="irb-table"><div class="irb-table-row"><span>산림탄소상쇄사업은 사업유형 및 방법론 검토, 대상지·권리관계 확인, 현장조사와 공간정보 작성, 탄소흡수량 산정, 사업계획서 및 증빙자료 작성, 등록신청·타당성평가·보완, 사업이행, 모니터링, 검증 및 인증 등 여러 업무가 장기간에 걸쳐 이어지는 제도입니다.
+기존 연구에서는 사업계획서 작성과 인증 절차의 복잡성, 전문지식 및 전문인력 부족 등이 사업 참여의 장애요인으로 제시된 바 있습니다. 본 연구에서는 관련 제도문서를 바탕으로 작성한 ‘업무지도’ 초안이 실제 업무와 얼마나 일치하는지 확인하고, 어떤 업무에서 시간·노력·전문적 판단·오류·누락·반복작업 등의 부담이 발생하는지 파악하고자 합니다. 또한 후속 인터뷰를 통해 부담이 발생하는 원인과 개선 필요사항을 살펴보고, 향후 AI 기반 업무지원 플랫폼의 기능 및 설계 요구사항을 도출하고자 합니다.</span></div></div>
+<p class="irb-h">2. 연구 참여 대상</p>
+<div class="irb-table"><div class="irb-table-row"><span>본 연구에는 만 19세 이상의 성인 중 산림탄소상쇄사업의 실제 업무 수행 또는 지원 경험이 있는 사람이 참여합니다. 온라인 설문조사는 총 50명을 모집하며, 40명의 유효응답 확보를 목표로 합니다. 후속 심층인터뷰는 설문 참여자 중 인터뷰 안내에 동의한 사람을 대상으로 총 15명을 모집하며, 12명의 인터뷰 완료를 목표로 합니다.
 
-<div id="topnav" class="topnav" style="display:none"><div class="navwrap" id="navwrap"></div></div>
+[선정기준]
+만 19세 이상의 성인
+산림탄소상쇄사업의 사업 신청, 사업계획서 작성, 컨설팅, 현장조사, 탄소흡수량 산정, 등록·평가 대응, 보완, 사업이행, 모니터링, 검증·인증 또는 제도 운영·사업지원 중 하나 이상의 실제 업무 수행 경험이 있는 사람
+연구목적과 연구절차를 이해하고 자발적으로 연구 참여에 동의한 사람
 
-<section id="consent" class="screen"><div class="wrap">
-<div class="sectionHead"><h2>1. 연구 참여 동의 <span style="color:#d93025">*</span></h2><p>조사 참여 전에 연구 목적과 응답 활용 내용을 확인해 주세요.</p></div>
-<div class="panel">
-<p>본 조사는 산림탄소상쇄사업의 실제 업무흐름과 업무 수행상의 어려움을 파악하여 향후 업무지원 플랫폼을 설계하기 위한 연구자료로 활용됩니다.</p>
-<div class="checkline"><input type="checkbox" id="consentResearch"><span>위 내용을 확인하였으며, 연구 목적의 조사 참여에 자발적으로 동의합니다.</span></div>
-<div class="checkline"><input type="checkbox" id="consentData"><span>응답 내용이 연구 분석에 활용되는 것에 동의합니다. 개인을 식별할 수 있는 정보는 연구 분석자료와 분리하여 관리합니다.</span></div>
-<p class="note">※ 실제 배포 전 개인정보 보관기간·폐기방법·중도철회·사례 지급 기준은 연구기관 및 IRB 지침에 맞게 확정해야 합니다.</p>
+[제외기준]
+만 19세 미만인 사람
+산림탄소상쇄제도에 대한 일반적인 지식만 있고 실제 사업 수행 또는 지원 경험이 없는 사람
+연구 참여에 동의하지 않은 사람</span></div></div>
+<p class="irb-h">3. 연구 방법</p>
+<div class="irb-table"><div class="irb-table-row"><span>연구 참여에 동의하시면 온라인 설문조사에 참여하게 됩니다. 설문은 약 20분 내외가 소요됩니다.
+설문에서는 다음 내용을 질문합니다.
+소속기관명, 현재 역할, 업무경력, 주요 경험 사업유형, 주요 업무 수행지역, 연령대, 성별 등 기본정보
+산림탄소상쇄사업 전체 업무 프로세스의 적절성
+업무지도에 제시된 15개 세부업무가 실제 업무와 일치하는지 여부
+시간과 노력이 많이 드는 업무, 전문적 판단이 필요한 업무, 오류·누락이 발생하기 쉬운 업무, 반복·재작업이 발생하는 업무
+디지털 도구로 우선 지원받고 싶은 업무와 필요한 지원기능
+ChatGPT 등 생성형 AI의 산림탄소상쇄 관련 업무 활용 경험, 활용 업무, 활용상의 유용성 및 한계
+
+15개 세부업무 검토 문항은 모두 응답해야 하며, 직접 경험하지 않은 업무에 대해서는 ‘해당 업무 경험 없음’을 선택할 수 있습니다. 수정의견이나 자유서술 문항 등 선택응답 항목은 작성하지 않아도 됩니다.
+설문 마지막에는 후속 심층인터뷰 안내를 받을 의사가 있는지 선택할 수 있습니다. 인터뷰 안내에 동의하더라도 인터뷰 참여가 확정되는 것은 아니며, 역할·업무경력·경험 사업유형 및 설문 응답특성의 다양성을 고려하여 일부 참여자를 선정합니다. 선정된 경우 연구자가 별도로 연락하여 연구내용과 일정을 안내하고 다시 참여 의사를 확인합니다.
+
+후속 인터뷰는 온라인 화상회의 방식으로 1인당 약 45~60분 진행됩니다. 인터뷰는 별도 동의를 받은 경우에만 음성으로 녹음하며, 화상회의 화면은 녹화하지 않습니다. 음성녹음에 동의하지 않는 경우 연구자가 연구노트를 작성하는 방식으로 진행합니다.</span></div></div>
+<p class="irb-h">4. 연구대상자가 준수해야 하는 사항</p>
+<div class="irb-table"><div class="irb-table-row"><span>자신의 실제 업무 경험을 바탕으로 응답해 주시기 바랍니다. 직접 경험하지 않은 업무는 ‘해당 업무 경험 없음’을 선택해 주시고, 연구 참여 중 불편함이 있거나 중단을 원할 경우 언제든지 설문을 종료하거나 연구담당자에게 알려주실 수 있습니다.</span></div></div>
+<p class="irb-h">5. 연구 참여 기간</p>
+<div class="irb-table"><div class="irb-table-row"><span>온라인 설문조사 참여에는 약 20분 내외가 소요됩니다. 후속 심층인터뷰 대상자로 선정되어 참여하는 경우 별도로 약 45~60분이 소요됩니다. 후속 인터뷰 참여 여부는 설문 참여와 별개로 다시 결정할 수 있습니다.</span></div></div>
+<p class="irb-h">6. 연구 참여 도중 참여철회</p>
+<div class="irb-table"><div class="irb-table-row"><span>귀하는 연구 참여 후에도 언제든지 별도의 사유 없이 참여를 중단하거나 동의를 철회할 수 있습니다. 온라인 설문은 제출 전 언제든지 종료할 수 있으며, 완료하지 않은 설문응답은 연구자료로 사용하지 않습니다. 후속 인터뷰 중 중단을 요청하는 경우 연구자는 즉시 인터뷰를 종료합니다. 연구 참여 거부나 중단으로 인한 불이익은 없습니다.</span></div></div>
+<p class="irb-h">7. 연구참여 중지 또는 철회 시 연구대상자의 자료 및 정보 처리방법</p>
+<div class="irb-table"><div class="irb-table-row"><span>설문을 제출하기 전에 참여를 중단한 경우 해당 응답은 연구자료로 사용하지 않습니다. 후속 인터뷰에서 동의를 철회하는 경우, 그 시점까지 수집된 자료의 사용 여부는 귀하의 의사를 확인하여 처리합니다. 다만 자료가 개인을 식별할 수 없도록 비식별화되고 참여자와 자료 간 연결정보가 삭제된 이후에는 특정 참여자의 자료를 찾아 별도로 삭제하기 어려울 수 있습니다.</span></div></div>
+<p class="irb-h">8. 부작용 또는 위험요소 및 불편함</p>
+<div class="irb-table"><div class="irb-table-row"><span>업무상 어려움, 오류·누락, 보완 또는 재작업 경험을 떠올리거나 설명하는 과정에서 일시적인 심리적 불편감이나 피로를 느낄 수 있습니다. 또한 소속기관, 역할, 업무경력, 사업지역 및 구체적인 업무경험이 결합될 경우 개인 또는 기관이 추정될 가능성이 있습니다.
+선택응답 문항은 작성하지 않아도 되며, 필수 업무지도 문항에는 ‘해당 업무 경험 없음’ 선택지가 제공됩니다. 인터뷰 중 불편함이 있는 경우 해당 질문에 답하지 않거나 인터뷰를 중단할 수 있습니다.</span></div></div>
+<p class="irb-h">9. 연구 참여에 따른 이익 또는 보상</p>
+<div class="irb-table"><div class="irb-table-row"><span>본 연구 참여로 귀하에게 직접적인 치료적 또는 경제적 이익이 보장되는 것은 아닙니다. 다만 귀하가 제공한 의견은 산림탄소상쇄사업의 실제 업무흐름과 업무상 어려움을 이해하고, 향후 업무지원 도구를 설계하는 데 활용될 수 있습니다.
+연구대상 기준을 충족하고 온라인 설문조사를 완료한 참여자에게는 감사의 의미로 3만원 상당의 모바일 상품권을 지급합니다. 설문을 완료하지 않은 경우에는 사례비를 지급하지 않습니다. 후속 심층인터뷰에 참여하는 경우 5만원 상당의 모바일 상품권을 별도로 지급합니다. 인터뷰가 시작된 이후 귀하가 자발적으로 참여를 중단하는 경우에도 약정된 사례비 전액을 지급합니다.</span></div></div>
+<p class="irb-h">10. 연구에 참여하지 않을 시 불이익</p>
+<div class="irb-table"><div class="irb-table-row"><span>귀하는 본 연구에 참여하지 않을 자유가 있습니다. 연구 참여를 거부하거나 참여 도중 중단하더라도 소속기관에서의 업무, 관계, 평가 또는 기타 어떠한 사항에도 불이익이 없습니다.</span></div></div>
+<p class="irb-h">11. 개인정보보호와 비밀보장</p>
+<div class="irb-table"><div class="irb-table-row"><span>본 연구에서 온라인 설문을 통해 수집하는 정보는 소속기관명, 현재 역할, 산림탄소 관련 업무경력, 주요 경험 사업유형, 주요 업무 수행지역, 연령대, 성별, 업무지도 검토 응답, 업무부담 및 디지털 업무지원 수요, 생성형 AI 활용 경험 및 활용상의 유용성·한계에 대한 응답, 자유서술 의견입니다.
+사례비 지급 및 후속 연락을 위해 성명, 휴대전화번호와 필요한 경우 이메일 주소를 별도로 수집합니다. 이러한 직접식별정보는 설문응답과 별도로 저장하며, 연구분석에는 사용하지 않습니다. 연구자료에는 연구용 식별번호를 부여하여 관리합니다.
+후속 심층인터뷰에서는 인터뷰 응답내용, 연구노트 및 별도 동의 시 음성녹음자료와 전사자료가 수집됩니다. 화상회의 화면은 녹화하지 않습니다. 음성자료는 전사 및 내용 확인을 위해 이용하며, 전사과정에서 성명·기관명 등 식별정보는 연구용 식별번호 또는 일반화된 표현으로 대체합니다. 음성녹음자료는 전사 및 내용확인이 완료된 후 연구에 더 이상 필요하지 않은 시점에 안전하게 삭제합니다.
+연구자료는 비밀번호 등 접근통제가 적용되는 저장공간에 보관하며 연구책임자와 연구담당자만 접근할 수 있도록 관리합니다. 연구결과 발표 또는 논문 작성 시 개인의 이름과 연락처는 공개하지 않으며, 소속기관·역할·지역 등 정보의 조합으로 개인이나 기관이 추정될 가능성이 있는 경우 해당 정보를 범주화하거나 일반화합니다.
+「생명윤리 및 안전에 관한 법률」 및 관련 규정에 따라 연구계획서, 동의 관련 기록, 연구결과 등 연구 관련 문서는 연구종료 후 3년간 보관한 뒤 안전하게 폐기합니다. 전자자료는 복구가 어렵도록 삭제하고, 종이자료가 있는 경우 분쇄 등의 방법으로 폐기합니다. 사례비 지급 및 연구비 정산을 위해 보관이 필요한 개인정보는 건국대학교 및 연구비 지원기관의 관련 규정에 따라 필요한 범위에서 보관 후 폐기합니다.
+연구의 수행절차 및 자료의 신뢰성을 확인하기 위해 건국대학교 기관생명윤리위원회 등 관계기관이 관련 규정이 허용하는 범위에서 연구자료를 열람할 수 있습니다. 이 경우에도 연구대상자의 비밀은 보호됩니다.
+ 본 연구에서 수집된 개인정보 및 연구자료는 본 연구의 목적 범위 내에서만 사용하며, 별도의 동의 없이 다른 연구의 2차적 이용 목적으로 사용하지 않습니다. 또한 원칙적으로 연구진 이외의 제3자에게 제공하지 않습니다.
+다만 법령에 따라 자료 제공이 요구되는 경우 또는 연구절차와 자료의 신뢰성, 연구대상자 보호 여부를 확인하기 위해 필요한 경우에는 건국대학교 기관생명윤리위원회 등 관련 기관이 연구 관련 자료를 열람하거나 제공받을 수 있습니다. 이 경우에도 필요한 범위에서만 자료를 제공하며 귀하의 개인정보는 보호됩니다.</span></div></div>
+<p class="irb-h">12. 연구 문의</p>
+<div class="irb-table"><div class="irb-table-row"><span>본 연구에 대해 질문이 있거나 연구 중간에 문제가 생길 시 다음 연구 담당자에게 언제든지 연락하십시오.
+
+이름: 송승현 
+전화번호: 010-5428-8965
+이메일: andro981221@naver.com
+
+만일 어느 때라도 연구대상자로서 귀하의 권리에 대한 질문이 있다면 다음의 건국대학교 기관생명윤리위원회에 연락하십시오.
+
+건국대학교 기관생명윤리위원회 전화번호: 02-2049-6368/6099,02-450-0651, 이메일: irb@konkuk.ac.kr</span></div></div>
+</div></details><div class="consent-confirmation research-confirmation"><p class="irb-h">동 의 서(온라인용, 설문조사)</p>
+<p class="irb-p">연구제목: 산림탄소상쇄제도 사업참여자의 행정부담 완화를 위한 AI 기반 업무지원 플랫폼 개발</p>
+<p class="irb-p consent-statement">1. 나는 본 연구의 설명문을 읽었으며 연구 내용에 대해 충분히 이해하였습니다.</p>
+<p class="irb-p consent-statement">2. 나는 이 연구에 참여함으로써 발생하는 위험과 이득에 관하여 충분히 알고 있습니다.</p>
+<p class="irb-p consent-statement">3. 나는 이 연구에 참여하는 것에 대하여 자발적으로 동의합니다.</p>
+<p class="irb-p consent-statement">4. 나는 이 연구에서 얻어진 나에 대한 정보를 현행 법률과 건국대학교 기관생명윤리위원회 규정이 허용하는 범위 내에서 연구자가 수집하고 처리하는데 동의합니다.</p>
+<p class="irb-p consent-statement">5. 나는 담당 연구자나 위임 받은 대리인이 연구를 진행하거나 결과 관리를 하는 경우와 보건 당국, 학교 당국 및 국가기관에서 실태 조사를 하는 경우에는 비밀로 유지되는 나의 개인 신상 정보를 직접적으로 열람하는 것에 동의합니다.</p>
+<p class="irb-p consent-statement">6. 나는 언제라도 이 연구의 참여를 철회할 수 있고 이러한 결정이 나에게 어떠한 해도 되지 않을 것이라는 것을 압니다.</p>
+</div><p class="irb-p consent-question">연구에 참여하는 것에 동의하십니까?</p><div aria-label="연구 참여 동의" class="consent-choice" role="group">
+<label class="checkline"><input id="consentResearch" name="researchConsent" type="radio" value="yes"/> 예</label>
+<label class="checkline"><input name="researchConsent" type="radio" value="no"/> 아니오</label>
 </div>
-<div class="pageNav"><span></span><button class="primary" onclick="nextFromConsent()">응답자 정보로</button></div>
-</div></section>
 
-<section id="respondent" class="screen"><div class="wrap">
+</div>
+<div class="panel"><div class="section-label"><strong>② 개인정보 수집 및 이용 동의서</strong></div><details class="consent-document" id="privacyDocument"><summary>개인정보 수집 및 이용 동의서 전문 <span class="expand-hint">펼쳐서 확인하기</span></summary><div class="irb-original privacy-formatted"><p class="privacy-subheading">개인정보 수집 및 이용 동의서</p>
+<p class="privacy-subheading">온라인 설문조사용</p>
+<p class="privacy-paragraph">연구과제명 산림탄소상쇄제도 사업참여자의 행정부담 완화를 위한 AI 기반 업무지원 플랫폼 개발</p>
+<p class="privacy-paragraph">본 연구에서는 온라인 설문조사의 수행 및 분석, 사례비 지급, 후속 심층인터뷰 안내를 위해 아래와 같이 개인정보 및 연구자료를 수집·이용하고자 합니다.</p>
+<p class="privacy-heading">1. 연구를 위해 수집하는 정보</p>
+<p class="privacy-subheading">가. 연구분석을 위해 수집하는 정보</p>
+<p class="privacy-bullet">• 소속/기관명</p>
+<p class="privacy-bullet">• 현재 역할</p>
+<p class="privacy-bullet">• 산림탄소 관련 업무경력</p>
+<p class="privacy-bullet">• 주요 경험 사업유형</p>
+<p class="privacy-bullet">• 주요 업무 수행지역</p>
+<p class="privacy-bullet">• 연령대</p>
+<p class="privacy-bullet">• 성별</p>
+<p class="privacy-bullet">• 산림탄소상쇄사업 전체 업무 프로세스 평가</p>
+<p class="privacy-bullet">• 15개 세부업무 검토 응답</p>
+<p class="privacy-bullet">• 업무지도 수정·보완 의견</p>
+<p class="privacy-bullet">• 누락된 업무에 대한 의견</p>
+<p class="privacy-bullet">• 사업 준비 및 등록 소요기간</p>
+<p class="privacy-bullet">• 시간과 노력이 많이 드는 업무</p>
+<p class="privacy-bullet">• 전문적 판단이 필요한 업무</p>
+<p class="privacy-bullet">• 실수·누락하기 쉬운 업무</p>
+<p class="privacy-bullet">• 반복적으로 발생하는 업무</p>
+<p class="privacy-bullet">• 실제 업무에서 가장 힘든 부분에 대한 응답</p>
+<p class="privacy-bullet">• 디지털 지원이 필요한 업무</p>
+<p class="privacy-bullet">• 필요한 디지털 지원방식</p>
+<p class="privacy-bullet">• 생성형 AI 활용 정도</p>
+<p class="privacy-bullet">• 생성형 AI 활용 업무</p>
+<p class="privacy-bullet">• 생성형 AI 활용상의 유용성에 대한 응답</p>
+<p class="privacy-bullet">• 생성형 AI 활용상의 어려움 및 신뢰성 한계에 대한 응답</p>
+<p class="privacy-bullet">• 생성형 AI만으로 수행하기 어렵다고 느낀 부분</p>
+<p class="privacy-bullet">• 기타 자유서술 응답</p>
+<p class="privacy-subheading">나. 사례비 지급을 위해 수집하는 개인식별정보</p>
+<p class="privacy-bullet">• 성명</p>
+<p class="privacy-bullet">• 휴대전화번호</p>
+<p class="privacy-bullet">• 필요한 경우 이메일 주소</p>
+<p class="privacy-paragraph">위 정보는 모바일 상품권 지급 및 연구비 정산을 위해 사용하며, 연구응답자료와 별도로 관리하고 연구분석에는 사용하지 않습니다.</p>
+<p class="privacy-subheading">다. 후속 심층인터뷰 안내를 위해 이용하는 정보</p>
+<p class="privacy-paragraph">후속 심층인터뷰 안내에 동의한 경우 다음 정보를 인터뷰 대상자 선정 및 연락을 위해 이용할 수 있습니다.</p>
+<p class="privacy-bullet">• 성명</p>
+<p class="privacy-bullet">• 휴대전화번호</p>
+<p class="privacy-bullet">• 필요한 경우 이메일 주소</p>
+<p class="privacy-bullet">• 현재 역할</p>
+<p class="privacy-bullet">• 산림탄소 관련 업무경력</p>
+<p class="privacy-bullet">• 주요 경험 사업유형</p>
+<p class="privacy-bullet">• 설문 응답특성</p>
+<p class="privacy-paragraph">후속 인터뷰 안내에 동의하더라도 인터뷰 참여가 확정되는 것은 아니며, 선정된 경우 연구자가 별도로 연락하여 연구내용과 일정을 안내한 뒤 참여 여부를 다시 확인합니다.</p>
+<p class="privacy-heading">2. 수집·이용 목적</p>
+<p class="privacy-bullet">• 산림탄소상쇄사업의 실제 업무흐름 분석</p>
+<p class="privacy-bullet">• 업무 수행 과정에서의 업무부담 및 어려움 분석</p>
+<p class="privacy-bullet">• 디지털 업무지원 수요 분석</p>
+<p class="privacy-bullet">• 생성형 AI 활용 경험 및 활용상의 한계에 대한 탐색적 분석</p>
+<p class="privacy-bullet">• AI 기반 업무지원 플랫폼의 기능 및 설계 요구사항 도출</p>
+<p class="privacy-bullet">• 연구 참여 사례비 지급 및 연구비 정산</p>
+<p class="privacy-bullet">• 동의한 참여자에 대한 후속 심층인터뷰 안내 및 대상자 선정</p>
+<p class="privacy-heading">3. 보유 및 이용기간</p>
+<p class="privacy-paragraph">연구자료는 관련 규정에 따라 연구종료 후 3년간 보관한 뒤 안전하게 폐기합니다.</p>
+<p class="privacy-paragraph">사례비 지급 및 연구비 정산을 위해 보관이 필요한 개인정보는 건국대학교 및 연구비 지원기관의 관련 규정에 따라 필요한 범위에서 보관한 후 폐기합니다.</p>
+<p class="privacy-heading">4. 2차적 이용 및 제3자 제공</p>
+<p class="privacy-paragraph">본 연구에서 수집한 개인정보 및 연구자료는 본 연구의 목적 범위 내에서만 사용하며, 별도의 동의 없이 다른 연구의 2차적 이용 목적으로 사용하지 않습니다.</p>
+<p class="privacy-paragraph">또한 원칙적으로 연구진 이외의 제3자에게 제공하지 않습니다.</p>
+<p class="privacy-paragraph">다만 법령에 따라 자료 제공이 요구되는 경우 또는 연구절차와 자료의 신뢰성 및 연구대상자 보호 여부를 확인하기 위해 필요한 경우에는 건국대학교 기관생명윤리위원회 등 관련 기관이 필요한 범위에서 연구 관련 자료를 열람하거나 제공받을 수 있습니다.</p>
+<p class="privacy-heading">5. 동의 거부 권리</p>
+<p class="privacy-paragraph">귀하는 개인정보 및 연구자료의 수집·이용에 동의하지 않을 권리가 있습니다.</p>
+<p class="privacy-paragraph">다만 연구 수행에 필요한 정보의 수집·이용에 동의하지 않는 경우 온라인 설문조사에 참여할 수 없습니다.</p>
+<p class="privacy-paragraph">사례비 지급을 위한 개인식별정보를 제공하지 않는 경우 사례비 지급이 어려울 수 있습니다.</p>
+<p class="privacy-paragraph">후속 심층인터뷰 안내를 위한 개인정보 이용에는 동의하지 않을 수 있으며, 이에 동의하지 않더라도 온라인 설문조사 참여에는 불이익이 없습니다.</p>
+</div></details><div class="consent-confirmation privacy-confirmation"><p class="privacy-heading">개인정보 및 연구자료 수집·이용 동의</p>
+<p class="privacy-paragraph">본인은 위 내용을 충분히 읽고 이해하였으며, 본 연구 수행을 위한 개인정보 및 연구자료의 수집·이용에 동의합니다.</p></div><div aria-label="개인정보 및 연구자료 수집 이용 동의" class="consent-choice" role="group">
+<label class="checkline"><input id="consentData" name="dataConsent" type="radio" value="yes"/> 동의함</label>
+<label class="checkline"><input name="dataConsent" type="radio" value="no"/> 동의하지 않음</label>
+</div></div>
+<p class="consent-footnote">※ 두 문서의 전문을 각각 펼쳐 확인하고, 연구 참여와 개인정보 및 연구자료 수집·이용에 모두 동의한 경우에만 다음 페이지로 이동할 수 있습니다.</p><p class="consent-footnote" id="documentReadStatus" role="status" aria-live="polite">문서 확인: 연구대상자 설명문 미확인 · 개인정보 동의서 미확인</p>
+<div class="pageNav"><button class="secondary" onclick="navigate('cover')">이전</button><button class="primary" onclick="nextFromConsent()">응답자 정보로</button></div></div></section>
+<section class="screen" id="respondent"><div class="wrap">
 <div class="sectionHead"><h2>2. 응답자 정보</h2><p>응답자의 실무 경험 맥락을 이해하기 위한 기본정보입니다. <span class="requiredStar">*</span> 표시는 필수 응답입니다.</p></div>
-<div class="panel">
+<div class="panel"><div>
 <div class="grid2">
-<label><span class="qtitle">소속/기관명 <span class="requiredStar">*</span></span><input id="org" placeholder="예: ○○컨설팅 / 개인 산주"></label>
-<label><span class="qtitle">현재 역할 <span class="requiredStar">*</span></span><select id="rtype"><option value="">선택</option><option>산주</option><option>사업자</option><option>컨설팅기관</option><option>운영기관</option><option>검증기관</option><option>연구자·전문가</option><option>기타</option></select></label>
+<label><span class="qtitle">소속/기관명 <span class="requiredStar">*</span></span><input id="org" placeholder="예: ○○컨설팅 / 개인 산주"/></label>
+<label><span class="qtitle">현재 역할 <span class="requiredStar">*</span></span><select id="rtype"><option value="">선택</option><option>산주</option><option>사업자</option><option>컨설팅 실무자</option><option>사업지원 실무자</option><option>제도 운영·평가 실무자</option><option>검증 실무자</option><option>연구자·전문가</option><option>기타</option></select><input id="rtypeOther" class="other-input" placeholder="기타 역할을 입력해 주세요" aria-label="기타 역할" style="display:none" oninput="saveRespondent()"/></label>
 <label><span class="qtitle">산림탄소 관련 업무경력 <span class="requiredStar">*</span></span><select id="career"><option value="">선택</option><option>1년 미만</option><option>1~3년</option><option>3~5년</option><option>5년 이상</option></select></label>
-<label>주요 경험 사업유형 <span class="note">(선택)</span><input id="experienceTypes" placeholder="예: 벌기령 연장, 식생복구"></label>
+<label>주요 경험 사업유형 <span class="note">(선택)</span><input id="experienceTypes" placeholder="예: 벌기령 연장, 식생복구"/></label>
 <label><span class="qtitle">연령대 <span class="requiredStar">*</span></span><select id="age"><option value="">선택</option><option>20대 이하</option><option>30대</option><option>40대</option><option>50대</option><option>60대 이상</option><option>응답하지 않음</option></select></label>
-<label><span class="qtitle">성별 <span class="requiredStar">*</span></span><select id="gender"><option value="">선택</option><option>여성</option><option>남성</option><option>기타/직접기재하지 않음</option><option>응답하지 않음</option></select></label>
-<label><span class="qtitle">주요 업무 수행 지역 <span class="requiredStar">*</span></span><select id="region"><option value="">선택</option><option>서울</option><option>부산</option><option>대구</option><option>인천</option><option>광주</option><option>대전</option><option>울산</option><option>세종</option><option>경기</option><option>강원</option><option>충북</option><option>충남</option><option>전북</option><option>전남</option><option>경북</option><option>경남</option><option>제주</option><option>복수 지역</option><option>전국 단위</option><option>기타</option></select></label>
+<label><span class="qtitle">성별 <span class="requiredStar">*</span></span><select id="gender"><option value="">선택</option><option>남</option><option>여</option><option>기재하지 않음</option></select></label>
+<label><span class="qtitle">주요 업무 수행 지역 <span class="requiredStar">*</span></span><select id="region"><option value="">선택</option><option>서울</option><option>부산</option><option>대구</option><option>인천</option><option>광주</option><option>대전</option><option>울산</option><option>세종</option><option>경기</option><option>강원</option><option>충북</option><option>충남</option><option>전북</option><option>전남</option><option>경북</option><option>경남</option><option>제주</option><option>복수 지역</option><option>전국 단위</option><option>기타</option></select><input id="regionOther" class="other-input" placeholder="기타 지역을 입력해 주세요" aria-label="기타 지역" style="display:none" oninput="saveRespondent()"/></label>
 </div>
-<div class="saveNote">입력 내용은 현재 브라우저에 자동 저장됩니다.</div>
-</div>
+<div class="saveNote">입력 내용은 현재 브라우저 탭의 세션에만 임시 저장됩니다. 공용 기기에서는 응답 후 창을 닫아 주세요.</div>
+</div></div>
 <div class="pageNav"><button class="secondary" onclick="navigate('consent')">이전</button><button class="primary" onclick="nextFromRespondent()">업무지도로</button></div>
 </div></section>
-
-<section id="workflow" class="screen"><div class="wrap">
+<section class="screen" id="workflow"><div class="wrap">
 <div class="sectionHead">
-  <h2>3. 업무지도 검토</h2>
-  <p>전체 업무흐름을 먼저 확인한 뒤, T01~T15의 모든 업무에 대해 실제 업무와의 일치 여부를 응답해 주세요. <span class="requiredStar">*</span> 표시는 필수 응답입니다.</p>
+<h2>3. 업무지도 검토</h2>
+<p>전체 업무흐름을 먼저 확인한 뒤, T01~T15의 모든 업무에 대해 실제 업무와의 일치 여부를 응답해 주세요. 참여자의 역할에 따라 직접 수행하지 않는 업무가 포함될 수 있습니다. <span class="requiredStar">*</span> 표시는 필수 응답입니다.</p>
 </div>
-
 <div class="workflowSummary">
-  <h3>전체 업무흐름</h3>
-  <p class="note">아래 흐름은 운영표준·방법론·사업계획서 작성 가이드 등을 바탕으로 연구자가 구성한 초안입니다.</p>
-  <div id="workflowOverview"></div>
-
-  <div class="overallQuestion">
-    <div class="taskQuestion"><span class="requiredStar">*</span> 제시된 산림탄소상쇄사업의 전체 업무 프로세스는 실제 업무 수행과정을 얼마나 잘 반영하고 있다고 생각하십니까?</div>
-    <div class="scaleRow" id="overallScale"></div>
-    <label>전체 업무흐름에서 가장 먼저 수정하거나 보완해야 할 부분이 있다면 작성해 주세요. <span class="note">(선택)</span>
-      <textarea id="overallComment" rows="3" oninput="saveOverallComment(this.value)"></textarea>
-    </label>
-  </div>
+<h3>전체 업무흐름</h3>
+<p class="note">아래 흐름은 운영표준·방법론·사업계획서 작성 가이드 등을 바탕으로 연구자가 구성한 초안입니다.</p>
+<div id="workflowOverview"></div>
+<div class="overallQuestion">
+<div class="taskQuestion"><span class="requiredStar">*</span> 제시된 산림탄소상쇄사업의 전체 업무 프로세스는 실제 업무 수행과정을 얼마나 잘 반영하고 있다고 생각하십니까?</div>
+<div class="scaleRow" id="overallScale"></div>
+<label>전체 업무흐름에서 가장 먼저 수정하거나 보완해야 할 부분이 있다면 작성해 주세요. <span class="note">(선택)</span>
+<textarea id="overallComment" oninput="saveOverallComment(this.value)" rows="3"></textarea>
+</label>
 </div>
-
-<div class="requiredHint">T01~T15의 각 업무마다 하나의 응답을 선택해야 다음 단계로 넘어갈 수 있습니다. 직접 경험하지 않은 업무는 ‘해당 업무 경험 없음’을 선택해 주세요.</div>
-
+</div>
+<div class="requiredHint">T01~T15의 각 업무마다 하나의 응답을 선택해야 다음 단계로 넘어갈 수 있습니다. 본 업무지도는 사업 전체 프로세스를 기준으로 구성되어 있으므로, 사업자·컨설팅기관·운영기관·검증기관 등 역할에 따라 직접 수행하지 않는 업무가 있을 수 있습니다. 직접 수행하거나 관여한 경험이 없는 업무는 ‘해당 업무 경험 없음’을 선택해 주세요.</div>
 <div id="taskDetails"></div>
-
 <div class="panel" style="margin-top:18px">
-  <h3>빠진 업무가 있나요? <span class="note">(선택)</span></h3>
-  <p class="note">현재 업무지도에 없는 실제 업무가 있다면 추가해 주세요.</p>
-  <div class="grid2">
-    <label>어느 업무 사이인가요?<input id="npos" placeholder="예: T06과 T07 사이"></label>
-    <label>업무명<input id="ntitle"></label>
-  </div>
-  <label>설명<textarea id="ndesc" rows="3"></textarea></label>
-  <button class="secondary" onclick="addMissing()">+ 빠진 업무 추가</button>
-  <div id="missing" class="note"></div>
+<h3>빠진 업무가 있나요? <span class="note">(선택)</span></h3>
+<p class="note">현재 업무지도에 없는 실제 업무가 있다면 추가해 주세요.</p>
+<div class="grid2">
+<label>어느 업무 사이인가요?<input id="npos" placeholder="예: T06과 T07 사이"/></label>
+<label>업무명<input id="ntitle"/></label>
 </div>
-
-<div id="workflowCounter" class="workflowCounter">0/15 필수 검토 완료</div>
+<label>설명<textarea id="ndesc" rows="3"></textarea></label>
+<button class="secondary" onclick="addMissing()">+ 빠진 업무 추가</button>
+<div class="note" id="missing"></div>
+</div>
+<div class="workflowCounter" id="workflowCounter">0/15 필수 검토 완료</div>
 <div class="pageNav">
-  <button class="secondary" onclick="navigate('respondent')">이전</button>
-  <button class="primary" onclick="nextFromWorkflow()">업무 경험으로</button>
+<button class="secondary" onclick="navigate('respondent')">이전</button>
+<button class="primary" onclick="nextFromWorkflow()">업무 경험으로</button>
 </div>
 </div></section>
-
-<section id="experience" class="screen"><div class="wrap">
-<div class="sectionHead"><h2>4. 실제 업무 경험</h2><p>실제 업무에서 시간과 노력이 많이 드는 지점, 디지털 지원이 필요한 지점을 알려주세요. <span class="requiredStar">*</span> 표시는 필수 응답입니다.</p></div>
+<section class="screen" id="experience"><div class="wrap">
+<div class="sectionHead"><h2>5. 실제 업무 경험 및 업무부담</h2><p>Q11~Q16. 실제 업무 경험을 바탕으로 응답해 주세요. 빨간 별표(*)는 필수 응답입니다.</p></div>
 <div class="panel">
 <label><span class="qtitle">산림탄소상쇄사업 1건을 준비하여 등록하기까지 일반적으로 어느 정도 시간이 소요됩니까? <span class="requiredStar">*</span></span>
 <select id="duration"><option value="">선택</option><option>1주 미만</option><option>1주~1개월</option><option>1~3개월</option><option>3~6개월</option><option>6개월 이상</option><option>사업에 따라 차이가 큼</option><option>잘 모르겠음</option></select></label>
-<h3>시간이나 노력이 많이 드는 업무를 최대 3개 선택해 주세요.</h3><div id="timeTasks" class="tasklist"></div>
-<h3>가장 어렵거나 전문적 판단이 필요한 업무를 최대 3개 선택해 주세요.</h3><div id="hardTasks" class="tasklist"></div>
-<h3>실수하거나 누락하기 쉬운 업무를 최대 3개 선택해 주세요.</h3><div id="errorTasks" class="tasklist"></div>
-<h3>업무 수행 중 반복적으로 발생하는 작업</h3><div class="grid2" id="repeatChecks"></div>
-<label>실제 업무에서 가장 힘든 부분은 무엇인가요?<textarea id="hardestText" rows="4"></textarea></label>
-<h3>디지털 도구가 있다면 가장 지원받고 싶은 업무를 최대 3개 선택해 주세요.</h3><div id="digitalTasks" class="tasklist"></div>
-<h3>어떤 방식의 지원이 가장 유용할 것 같나요?</h3><div class="grid2" id="supportChecks"></div>
+<h3 class="experienceQuestion">시간이나 노력이 많이 드는 업무를 3개까지 선택해 주세요. <span class="note">(복수 선택 가능 · 최대 3개)</span> <span class="requiredStar">*</span></h3><div class="tasklist" id="timeTasks"></div>
+<h3 class="experienceQuestion">가장 어렵거나 전문적 판단이 필요한 업무를 3개까지 선택해 주세요. <span class="note">(복수 선택 가능 · 최대 3개)</span> <span class="requiredStar">*</span></h3><div class="tasklist" id="hardTasks"></div>
+<h3 class="experienceQuestion">실수하거나 누락하기 쉬운 업무를 3개까지 선택해 주세요. <span class="note">(복수 선택 가능 · 최대 3개)</span> <span class="requiredStar">*</span></h3><div class="tasklist" id="errorTasks"></div>
+<h3 class="experienceQuestion">업무 수행 중 반복적으로 발생하는 작업 <span class="note">(복수 선택 가능)</span> <span class="requiredStar">*</span></h3><div class="grid2" id="repeatChecks"></div><input id="repeatOther" class="other-input" placeholder="반복 작업의 기타 내용을 입력해 주세요" aria-label="기타 내용 직접 입력" style="display:none" oninput="saveBurden()"/>
+<label class="experienceLabel">실제 업무에서 가장 힘든 부분은 무엇인가요?<textarea id="hardestText" rows="4"></textarea></label>
 </div>
-<div class="pageNav"><button class="secondary" onclick="navigate('workflow')">이전</button><button class="primary" onclick="nextFromExperience()">사례 및 인터뷰로</button></div>
-</div></section>
-
-<section id="incentive" class="screen"><div class="wrap">
-<div class="sectionHead"><h2>5. 사례 및 향후 인터뷰</h2><p>사례 지급과 후속 인터뷰 안내를 위한 연락처를 입력해 주세요. <span class="requiredStar">*</span> 표시는 필수 응답입니다.</p></div>
-<div class="panel">
-<div class="notice">본 조사에 참여하여 연구대상 기준을 충족하고 조사를 완료해주신 분께 감사의 의미로 <b>3만원 상당의 모바일 기프티콘</b>을 제공합니다. 사례 지급 대상은 <b>최대 50명</b>이며, 모집 정원에 도달하면 조사가 조기 종료될 수 있습니다. 사례 지급용 개인정보는 연구응답과 분리하여 관리합니다.</div>
-<div class="grid2"><label><span class="qtitle">성함 <span class="requiredStar">*</span></span><input id="giftName"></label><label><span class="qtitle">휴대전화 <span class="requiredStar">*</span></span><input id="phone" placeholder="010-0000-0000"></label><label>이메일(선택)<input id="email" type="email"></label></div>
-<h3>향후 심층 인터뷰 참여 의향</h3>
-<p>본 조사 결과를 바탕으로 실제 업무 과정을 더 자세히 이해하기 위한 후속 인터뷰를 진행할 수 있습니다. 동의하더라도 참여가 확정되는 것은 아니며, 추후 별도로 연락드려 일정과 참여 여부를 다시 확인합니다.</p>
-<div class="checkline"><input type="checkbox" id="interviewOptIn"><span>향후 산림탄소상쇄사업 업무 관련 심층 인터뷰 안내를 받는 것에 동의합니다.</span></div>
-<label>인터뷰 관련 남기고 싶은 말씀(선택)<textarea id="interviewNote" rows="3"></textarea></label>
+<div class="pageNav"><button class="secondary" onclick="navigate('workflow')">이전</button><button class="primary" onclick="nextFromExperience()">디지털 지원 수요로</button></div>
+</div></section><section class="screen" id="digital"><div class="wrap"><div class="sectionHead"><h2>6. 디지털 업무지원 수요</h2><p>Q17~Q18. 디지털 도구를 통해 지원받고 싶은 업무와 기능에 대해 답해 주세요.</p></div><div class="panel"><h3 class="experienceQuestion">디지털 도구가 있다면 가장 지원받고 싶은 업무를 3개까지 선택해 주세요. <span class="note">(복수 선택 가능 · 최대 3개)</span> <span class="requiredStar">*</span></h3><div class="tasklist" id="digitalTasks"></div>
+<h3 class="experienceQuestion">디지털 지원이 있다면, 어떤 방식의 지원이 가장 유용할 것 같나요? <span class="note">(복수 선택 가능)</span> <span class="requiredStar">*</span></h3><div class="grid2" id="supportChecks"></div><input id="supportOther" class="other-input" placeholder="디지털 지원 방식의 기타 내용을 입력해 주세요" aria-label="기타 내용 직접 입력" style="display:none" oninput="saveBurden()"/>
+</div><div class="pageNav"><button class="secondary" onclick="navigate('experience')">이전</button><button class="primary" onclick="nextFromDigital()">생성형 AI 경험으로</button></div></div></section>
+<section class="screen" id="ai"><div class="wrap"><div class="sectionHead"><h2>7. 생성형 AI 활용 경험</h2><p>Q19~Q23. 이 페이지의 모든 문항은 선택응답입니다.</p></div><div class="panel"><div class="panel" style="margin-top:22px;background:#fbfcfc">
+<h3 class="experienceQuestion" style="margin-top:0">생성형 AI 활용 경험 <span class="note">(선택응답)</span></h3>
+<p class="note">ChatGPT, Gemini, Claude 등 생성형 AI를 산림탄소상쇄 관련 업무에 활용한 경험이 있다면 알려주세요. 아래 문항은 모두 선택응답입니다.</p>
+<label class="experienceLabel">현재 생성형 AI를 산림탄소상쇄 관련 업무에 어느 정도 활용하고 있습니까?
+    <select id="aiUse" onchange="saveAI()"><option value="">응답하지 않음</option><option>자주 사용함</option><option>가끔 사용함</option><option>사용해본 적은 있으나 현재는 거의 사용하지 않음</option><option>사용한 적 없음</option></select>
+</label>
+<h3 class="experienceQuestion">사용해본 경우, 어떤 업무에 활용했습니까? <span class="note">(복수 선택 가능)</span></h3><div class="grid2" id="aiTaskChecks"></div><input id="aiTaskOther" class="other-input" placeholder="AI 활용 업무의 기타 내용을 입력해 주세요" aria-label="기타 내용 직접 입력" style="display:none" oninput="saveAI()"/>
+<label class="experienceLabel">생성형 AI를 사용하면서 도움이 되었던 점이 있다면 작성해 주세요.<textarea id="aiHelpful" oninput="saveAI()" rows="3"></textarea></label>
+<label class="experienceLabel">사용하면서 어렵거나 신뢰하기 어려웠던 점이 있다면 작성해 주세요.<textarea id="aiLimits" oninput="saveAI()" rows="3"></textarea></label>
+<h3 class="experienceQuestion">생성형 AI만으로 수행하기 어렵다고 느낀 부분이 있다면 선택해 주세요. <span class="note">(복수 선택 가능)</span></h3><div class="grid2" id="aiDifficultyChecks"></div><input id="aiDifficultyOther" class="other-input" placeholder="AI 수행 어려움의 기타 내용을 입력해 주세요" aria-label="기타 내용 직접 입력" style="display:none" oninput="saveAI()"/>
 </div>
-<div class="pageNav"><button class="secondary" onclick="navigate('experience')">이전</button><button class="primary" id="submitBtn" onclick="submitAll()">완료 및 제출</button></div>
-<div id="submitState" class="submitstate"></div>
-</div></section>
-
-<section id="done" class="screen"><div class="wrap"><div class="panel completeBox">
-<div class="checkmark">✓</div><h2>참여해주셔서 감사합니다.</h2>
+</div><div class="pageNav"><button class="secondary" onclick="navigate('digital')">이전</button><button class="primary" onclick="nextFromAI()">사례 및 인터뷰로</button></div></div></section>
+<section class="screen" id="incentive"><div class="wrap"><div class="sectionHead"><h2>8. 사례비 지급 및 후속 인터뷰 안내</h2><p>사례비 지급과 후속 인터뷰 연락은 서로 별개의 목적으로 처리됩니다.</p></div>
+<div class="panel"><div class="section-label">참여 사례 안내</div><div class="notice">연구대상 기준을 충족하고 온라인 설문조사를 완료한 참여자에게 연구 참여에 대한 보상으로 3만원 상당의 모바일 상품권을 지급합니다.<br/><br/>온라인 설문조사는 총 50명을 모집하며, 모집 인원에 도달할 경우 조사가 종료될 수 있습니다.<br/><br/>사례비 지급을 위한 개인정보는 연구응답자료와 별도로 수집·저장하며 연구분석에는 이용하지 않습니다.</div></div>
+<div class="panel answer-panel"><div class="section-label">Q24. 사례비 지급을 위한 연락정보 <span class="requiredStar">*</span></div>
+<div class="grid2"><label>성명 <span class="requiredStar">*</span><input autocomplete="name" id="giftName"/></label><label>휴대전화번호 <span class="requiredStar">*</span><input id="phone" inputmode="tel" placeholder="010-0000-0000"/></label><label>이메일 (선택)<input autocomplete="email" id="email" type="email"/></label></div></div>
+<div class="panel answer-panel"><div class="section-label">Q25. 향후 심층인터뷰 안내를 받는 것에 동의하십니까? (선택)</div>
+<div class="choices"><label class="checkline"><input id="interviewYes" name="interviewChoice" type="radio" value="yes"/>동의함</label><label class="checkline"><input id="interviewNo" name="interviewChoice" type="radio" value="no"/>동의하지 않음</label></div>
+<p class="note">동의하더라도 인터뷰 참여가 확정되는 것은 아닙니다. 역할, 업무경력, 경험 사업유형 및 설문 응답특성의 다양성을 고려하여 인터뷰 대상자를 선정하며, 선정된 경우 연구자가 별도로 연락하여 연구내용과 일정을 안내하고 참여 여부를 다시 확인합니다.</p></div>
+<div class="panel answer-panel"><div class="section-label">Q26. 인터뷰 관련 남기고 싶은 말씀이 있다면 작성해 주세요. (선택)</div><textarea id="interviewNote" rows="3"></textarea></div>
+<div class="pageNav"><button class="secondary" onclick="navigate('ai')">이전</button><button class="primary" onclick="nextFromIncentive()">제출 전 확인으로</button></div></div></section><section class="screen" id="confirm"><div class="wrap"><div class="sectionHead"><h2>9. 설문 제출 전 확인</h2><p>필수 응답을 확인한 후 최종 제출해 주세요. 선택응답 문항은 비워두어도 됩니다.</p></div><div class="panel"><div class="section-label">응답 완료 현황</div><div id="completionChecklist"></div><p class="note">제출 후에는 브라우저에서 응답을 수정할 수 없습니다.</p></div><div class="pageNav"><button class="secondary" onclick="navigate('incentive')">이전</button><button class="primary" id="submitBtn" onclick="submitAll()">최종 제출</button></div><div class="submitstate" id="submitState"></div></div></section>
+<section class="screen" id="done"><div class="wrap"><div class="panel completeBox">
+<div class="checkmark">✓</div><h2>설문 전송 요청을 완료했습니다.</h2>
 <p>보내주신 의견은 산림탄소상쇄사업의 실제 업무흐름을 정리하고, 현장에서 활용할 수 있는 업무지원 플랫폼을 설계하는 데 활용하겠습니다.</p>
-<p id="submissionText" class="note"></p>
+<p class="note" id="submissionText"></p><p class="note">현재 제출 방식에서는 서버의 저장 성공 여부를 브라우저에서 확인할 수 없습니다. 연구자는 수집 시트에서 실제 접수를 반드시 확인해야 합니다.</p>
 </div></div></section>
-
+<div id="consentAlertOverlay" class="consent-modal-backdrop" role="presentation" aria-hidden="true">
+ <div class="consent-modal" role="alertdialog" aria-modal="true" aria-labelledby="consentAlertTitle" aria-describedby="consentAlertMessage">
+  <h3 id="consentAlertTitle">응답 확인이 필요합니다</h3>
+  <p id="consentAlertMessage">두 동의서 전문을 각각 펼쳐서 확인하고, 연구 참여는 '예', 개인정보 수집·이용은 '동의함'을 선택해 주세요.</p>
+  <button class="primary" id="consentAlertClose" type="button" onclick="closeConsentAlert()">확인</button>
+ </div>
+</div>
 <script>
-const tasks=[{"id": "T01", "phase": "사업 진입", "phase_label": "사업 시작 검토", "title": "사업 가능성 1차 검토", "desc": "대상지·사업 아이디어를 기준으로 산림탄소상쇄사업 참여 가능성을 1차로 판단", "actors": "사업희망자 / 컨설팅기관", "inputs": "대상지 위치·면적, 사업내용, 조성/경영 계획", "action": "참여 가능성을 1차로 판단", "output": "사업 참여 가능성 1차 판정", "next": "T02 사업유형·규모·참여형태 판단", "question": "실무에서는 최초 상담 때 무엇을 가장 먼저 확인하나요?"}, {"id": "T02", "phase": "사업 진입", "phase_label": "사업 시작 검토", "title": "사업유형·규모·참여형태 판단", "desc": "사업유형, 거래/비거래, 규모, 단일/묶음 여부를 판단", "actors": "사업자 / 컨설팅기관", "inputs": "사업내용, 예상 흡수량, 사업구성", "action": "사업유형·규모·참여형태를 분류", "output": "사업유형·규모·참여유형 결정값", "next": "T03 선행요건·인허가·사업이력 확인", "question": "예상 흡수량 계산 전에도 규모를 판단하나요? 실제 순서는 어떻게 되나요?"}, {"id": "T03", "phase": "등록 전", "phase_label": "사업 준비", "title": "선행요건·인허가·사업이력 확인", "desc": "방법론별 과거 이력, 인허가, 계획, 계약·준공 등 선행조건을 확인", "actors": "사업자 / 컨설팅기관", "inputs": "산림경영계획, 벌채허가, 계약·착공·준공자료, 과거 이력", "action": "선행조건과 증빙 보유 여부를 점검", "output": "선행요건 충족표 + 증빙목록", "next": "T04 기초자료 확보", "question": "문서에는 없지만 실무상 먼저 확인하는 사항이 있나요?"}, {"id": "T04", "phase": "등록 전", "phase_label": "사업 준비", "title": "대상지·권리관계·기초자료 확보", "desc": "사업대상지·참여자·권리관계·사업기간 등 기본정보를 정리", "actors": "사업자 / 컨설팅기관", "inputs": "지적·토지이용정보, 소유권·협약서, 계약·지출·착공자료", "action": "반복 활용되는 사업 기본정보를 수집·구조화", "output": "대상지·사업자·사업기간·권리관계 기본정보", "next": "T05 방법론 적용조건·사업적합성 검토", "question": "실제로 누가 자료를 모으고 누구에게 요청하나요?"}, {"id": "T05", "phase": "등록 전", "phase_label": "사업 준비", "title": "방법론 적용조건·사업적합성 검토", "desc": "최신 방법론의 적용조건·적용불가조건을 확인하고 근거로 입증", "actors": "컨설팅기관 / 사업자", "inputs": "최신 방법론, 항공사진, 토지이용계획, 준공자료, 법령·기준", "action": "적용조건별 충족 여부와 근거를 연결", "output": "방법론 적용성 체크 결과 + 근거자료", "next": "T06 공간정보 정리", "question": "가장 해석이 어렵거나 문의가 잦은 적용조건은 무엇인가요?"}, {"id": "T06", "phase": "사업설계", "phase_label": "사업 설계·조사", "title": "사업경계·구획·공간정보 정리", "desc": "대상지 경계·제외면적·구획을 확정하고 좌표·GIS 자료를 작성", "actors": "컨설팅기관 / GIS 담당", "inputs": "지적도, 항공영상, 임상도, 설계도면, 현장정보", "action": "경계·구획·좌표·면적을 공간데이터로 정리", "output": "구획도 + 면적표 + SHP/KML/좌표", "next": "T07 현장확인·산림조사 설계", "question": "GIS 작업은 실제로 누가 어떤 프로그램으로 하나요?"}, {"id": "T07", "phase": "사업설계", "phase_label": "사업 설계·조사", "title": "현장확인·산림조사 설계", "desc": "현장방문 여부를 판단하고 표본점·표준지·조사항목·장비·동선을 설계", "actors": "컨설팅기관 / 산림조사 전문인력", "inputs": "구획정보, 산림조사 가이드라인, 기존 임분자료", "action": "현장조사 방법과 조사 지점을 설계", "output": "현장방문 계획 + 조사설계 + 표본점/표준지 좌표", "next": "T08 현장조사·조사데이터 정리", "question": "사전답사와 정식 산림조사는 구분되나요? 몇 번 방문하나요?"}, {"id": "T08", "phase": "사업설계", "phase_label": "사업 설계·조사", "title": "현장조사·조사데이터 정리", "desc": "현장에서 DBH·수고·수종·임분정보·사진 등을 측정하고 데이터 정리·검수", "actors": "산림조사 전문인력 / 컨설팅기관", "inputs": "조사계획, GPS, 측정장비, 조사야장", "action": "현장 측정·기록 후 데이터 정리와 QA/QC 수행", "output": "조사야장/측정데이터 + 사진 + GPS + QA/QC 결과", "next": "T09/T10", "question": "현장자료를 사무실 작업용 데이터로 바꾸는 데 수기 재입력이 있나요?"}, {"id": "T09", "phase": "사업설계", "phase_label": "사업 설계·조사", "title": "베이스라인·중복성·추가성 등 사업평가", "desc": "베이스라인과 중복성·디번들링·추가성 등 등록요건을 판단", "actors": "컨설팅기관 / 사업자", "inputs": "과거 경영·토지이력, 법령·관행, 타 감축사업 정보", "action": "등록요건별 평가와 판단 근거 작성", "output": "베이스라인 시나리오 + 평가결과와 근거", "next": "T10 탄소산정 입력자료·계수 준비", "question": "가장 전문적 판단이 필요한 항목은 무엇인가요?"}, {"id": "T10", "phase": "산정", "phase_label": "탄소량 산정", "title": "탄소산정 입력자료·계수 준비", "desc": "원자료를 산정 프로그램 입력형식으로 가공하고 최신 계수를 확보", "actors": "컨설팅기관 / 사업자", "inputs": "조사데이터, 식재본수·임령, 시설·제품자료, 공인계수", "action": "원자료를 계산 입력형식으로 정제하고 계수 출처 연결", "output": "정제 입력데이터 + 적용 계수 + 출처/버전", "next": "T11 자동산출기·유형별 산정", "question": "원자료를 계산용 형식으로 바꾸는 데 어떤 수작업이 있나요?"}, {"id": "T11", "phase": "산정", "phase_label": "탄소량 산정", "title": "자동산출기·유형별 산정 및 결과 검토", "desc": "산정도구에 자료를 입력해 베이스라인·사업량·순흡수량을 산정하고 결과 검토", "actors": "컨설팅기관 / 사업자", "inputs": "기본정보, 구획·표준지, 재적·임령, 베이스라인 자료", "action": "산정도구에 입력하고 산출결과와 오류 검토", "output": "산출파일 + 결과표 + 오류/검토 기록", "next": "T12/T13", "question": "산출기와 사업계획서 사이에 복사·재입력이 있나요?"}, {"id": "T12", "phase": "사업계획", "phase_label": "사업계획 작성", "title": "모니터링 계획·장기 데이터관리 설계", "desc": "모니터링 시기·주기·방법·주체·QA/QC·자료보관 방식을 설계", "actors": "사업자 / 컨설팅기관 / 조사기관", "inputs": "방법론, 조사계획, 사업기간, 운영체계", "action": "장기 모니터링 운영체계와 데이터관리 계획 설계", "output": "모니터링 일정표 + 조사방법 + 수행주체 + 데이터보관 계획", "next": "T13", "question": "몇 년 뒤 일정과 자료를 실제로 누가 관리하나요?"}, {"id": "T13", "phase": "사업계획", "phase_label": "사업계획 작성", "title": "사업계획서·증빙자료 패키지 작성", "desc": "앞 단계 결과를 사업계획서에 작성하고 증빙을 묶음", "actors": "컨설팅기관 / 사업자", "inputs": "모든 사업정보, 산정결과, GIS, 사진, 계약·인허가·조사자료", "action": "사업계획서 작성 및 제출증빙 패키지 구성", "output": "완성 사업계획서 + 제출용 증빙 패키지", "next": "T14", "question": "작성·복붙·파일관리에서 시간이 많이 드는 부분은 무엇인가요?"}, {"id": "T14", "phase": "신청·평가", "phase_label": "등록 신청·평가", "title": "등록부 신청·타당성평가·보완", "desc": "등록부 제출 후 평가의견에 따라 수정·추가증빙·재제출", "actors": "사업자 / 컨설팅기관 ↔ 산림탄소센터", "inputs": "사업계획서, 증빙파일, 등록부 입력정보, 보완의견", "action": "등록신청 후 보완의견을 작업단위로 수정·재제출", "output": "등록신청 + 보완요구 + 수정본/추가증빙 + 재제출 이력", "next": "등록 또는 T14 반복", "question": "등록부와 사업계획서에 중복입력이 있나요?"}, {"id": "T15", "phase": "등록 후", "phase_label": "등록 후 관리", "title": "사업이행·모니터링·검증·인증·사후관리", "desc": "사업 이행과 주기적 모니터링·검증·인증·사후관리를 수행", "actors": "사업자 / 컨설팅기관 / 조사·검증기관 / 센터", "inputs": "등록 사업계획서, 장기 이력, 현장·운영 데이터", "action": "사업 전 기간의 이행·모니터링·검증·인증·변경 이력 관리", "output": "사업이행 기록 + 모니터링·검증·인증·변경/승계 이력", "next": "다음 사이클", "question": "등록 이후 실제로 가장 관리하기 어려운 업무는 무엇인가요?"}];
-const CONFIG={GAS_URL:"https://script.google.com/macros/s/AKfycbwWUKiJzb8375rc1sXX6s2FDloFKWRnl5nPc3vG9eCcWQ2lVxjmxj36Op5nppkI-I4OVw/exec"};
-const screens=["consent","respondent","workflow","experience","incentive"];
-const labels={consent:"동의",respondent:"응답자 정보",workflow:"업무지도",experience:"업무 경험",incentive:"사례·인터뷰"};
+const tasks=[{"id": "T01", "phase": "사업 진입", "phase_label": "사업 시작 검토", "title": "사업 가능성 1차 검토", "desc": "대상지·사업 아이디어를 기준으로 산림탄소상쇄사업 참여 가능성을 1차로 판단", "actors": "사업희망자 / 컨설팅기관", "inputs": "대상지 위치·면적, 사업내용, 조성/경영 계획", "action": "참여 가능성을 1차로 판단", "output": "사업 참여 가능성 1차 판정", "next": "T02 사업유형·규모·참여형태 판단", "question": "실무에서는 최초 상담 때 무엇을 가장 먼저 확인하나요?"}, {"id": "T02", "phase": "사업 진입", "phase_label": "사업 시작 검토", "title": "사업유형·규모·참여형태 판단", "desc": "사업유형, 거래/비거래, 규모, 단일/묶음 여부를 판단", "actors": "사업자 / 컨설팅기관", "inputs": "사업내용, 예상 흡수량, 사업구성", "action": "사업유형·규모·참여형태를 분류", "output": "사업유형·규모·참여유형 결정값", "next": "T03 선행요건·인허가·사업이력 확인", "question": "예상 흡수량 계산 전에도 규모를 판단하나요? 실제 순서는 어떻게 되나요?"}, {"id": "T03", "phase": "등록 전", "phase_label": "사업 준비", "title": "선행요건·인허가·사업이력 확인", "desc": "방법론별 과거 이력, 인허가, 계획, 계약·준공 등 선행조건을 확인", "actors": "사업자 / 컨설팅기관", "inputs": "산림경영계획, 벌채허가, 계약·착공·준공자료, 과거 이력", "action": "선행조건과 증빙 보유 여부를 점검", "output": "선행요건 충족표 + 증빙목록", "next": "T04 기초자료 확보", "question": "문서에는 없지만 실무상 먼저 확인하는 사항이 있나요?"}, {"id": "T04", "phase": "등록 전", "phase_label": "사업 준비", "title": "대상지·권리관계·기초자료 확보", "desc": "사업대상지·참여자·권리관계·사업기간 등 기본정보를 정리", "actors": "사업자 / 컨설팅기관", "inputs": "지적·토지이용정보, 소유권·협약서, 계약·지출·착공자료", "action": "반복 활용되는 사업 기본정보를 수집·구조화", "output": "대상지·사업자·사업기간·권리관계 기본정보", "next": "T05 방법론 적용조건·사업적합성 검토", "question": "실제로 누가 자료를 모으고 누구에게 요청하나요?"}, {"id": "T05", "phase": "등록 전", "phase_label": "사업 준비", "title": "방법론 적용조건·사업적합성 검토", "desc": "최신 방법론의 적용조건·적용불가조건을 확인하고 근거로 입증", "actors": "컨설팅기관 / 사업자", "inputs": "최신 방법론, 항공사진, 토지이용계획, 준공자료, 법령·기준", "action": "적용조건별 충족 여부와 근거를 연결", "output": "방법론 적용성 체크 결과 + 근거자료", "next": "T06 공간정보 정리", "question": "가장 해석이 어렵거나 문의가 잦은 적용조건은 무엇인가요?"}, {"id": "T06", "phase": "사업설계", "phase_label": "사업 설계·조사", "title": "사업경계·구획·공간정보 정리", "desc": "대상지 경계·제외면적·구획을 확정하고 좌표·GIS 자료를 작성", "actors": "컨설팅기관 / GIS 담당", "inputs": "지적도, 항공영상, 임상도, 설계도면, 현장정보", "action": "경계·구획·좌표·면적을 공간데이터로 정리", "output": "구획도 + 면적표 + SHP/KML/좌표", "next": "T07 현장확인·산림조사 설계", "question": "GIS 작업은 실제로 누가 어떤 프로그램으로 하나요?"}, {"id": "T07", "phase": "사업설계", "phase_label": "사업 설계·조사", "title": "현장확인·산림조사 설계", "desc": "사업경계와 조사기준을 바탕으로 표본점·표준지·조사항목·장비·동선을 설계", "actors": "컨설팅기관 / 산림조사 전문인력", "inputs": "구획정보, 사업경계·공간정보, 산림조사 가이드라인", "action": "현장조사 방법과 계획 조사 지점을 설계", "output": "현장조사 계획 + 조사설계 + 계획 표본점/표준지 좌표", "next": "T08 현장조사·조사데이터 정리", "question": "현장조사를 설계할 때 실제로 가장 중요하게 확인하는 자료와 조건은 무엇인가요?"}, {"id": "T08", "phase": "사업설계", "phase_label": "사업 설계·조사", "title": "현장조사·조사데이터 정리", "desc": "계획된 좌표를 기준으로 현장을 조사하되 현장여건에 따라 표준지 위치를 조정하고 실제 조사자료를 정리·검수", "actors": "산림조사 전문인력 / 컨설팅기관", "inputs": "조사계획, 계획 좌표, GPS, 측정장비, 조사야장", "action": "현장에서 DBH·수고·수종·임분정보 등을 측정하고, 변경된 경우 실제 조사 좌표를 기록하여 조사데이터를 정리·검수", "output": "조사야장/측정데이터 + 사진 + 실제 표준지 좌표 + QA/QC 결과", "next": "T09/T10", "question": "계획 좌표와 실제 조사 좌표가 달라지는 경우는 얼마나 있으며, 변경사항은 어떻게 기록·관리하나요?"}, {"id": "T09", "phase": "사업설계", "phase_label": "사업 설계·조사", "title": "베이스라인·중복성·추가성 등 사업평가", "desc": "베이스라인과 중복성·디번들링·추가성 등 등록요건을 판단", "actors": "컨설팅기관 / 사업자", "inputs": "과거 경영·토지이력, 법령·관행, 타 감축사업 정보", "action": "등록요건별 평가와 판단 근거 작성", "output": "베이스라인 시나리오 + 평가결과와 근거", "next": "T10 탄소산정 입력자료·계수 준비", "question": "가장 전문적 판단이 필요한 항목은 무엇인가요?"}, {"id": "T10", "phase": "산정", "phase_label": "탄소량 산정", "title": "탄소산정 입력자료·계수 준비", "desc": "원자료를 산정 프로그램 입력형식으로 가공하고 최신 계수를 확보", "actors": "컨설팅기관 / 사업자", "inputs": "조사데이터, 식재본수·임령, 시설·제품자료, 공인계수", "action": "원자료를 계산 입력형식으로 정제하고 계수 출처 연결", "output": "정제 입력데이터 + 적용 계수 + 출처/버전", "next": "T11 자동산출기·유형별 산정", "question": "원자료를 계산용 형식으로 바꾸는 데 어떤 수작업이 있나요?"}, {"id": "T11", "phase": "산정", "phase_label": "탄소량 산정", "title": "흡수량 산정 및 결과 검토", "desc": "적용 방법론에 따라 베이스라인·사업량·순흡수량을 산정하고 결과를 검토", "actors": "컨설팅기관 / 사업자", "inputs": "기본정보, 구획·표준지, 조사자료, 적용계수, 베이스라인 자료, 방법론", "action": "자동산출기가 적용되는 방법론은 해당 도구를 활용하고, 그 외 방법론은 방법론의 산정절차에 따라 직접 계산하여 결과와 오류를 검토", "output": "흡수량 산정결과 + 계산근거/산출파일 + 검토 기록", "next": "T12/T13", "question": "흡수량 산정 과정에서 가장 많은 수작업이나 확인이 필요한 부분은 무엇인가요?"}, {"id": "T12", "phase": "사업계획", "phase_label": "사업계획 작성", "title": "모니터링 계획·장기 데이터관리 설계", "desc": "모니터링 시기·주기·방법·주체·QA/QC·자료보관 방식을 설계", "actors": "사업자 / 컨설팅기관 / 조사기관", "inputs": "방법론, 조사계획, 사업기간, 운영체계", "action": "장기 모니터링 운영체계와 데이터관리 계획 설계", "output": "모니터링 일정표 + 조사방법 + 수행주체 + 데이터보관 계획", "next": "T13", "question": "몇 년 뒤 일정과 자료를 실제로 누가 관리하나요?"}, {"id": "T13", "phase": "사업계획", "phase_label": "사업계획 작성", "title": "사업계획서·증빙자료 패키지 작성", "desc": "앞 단계 결과를 사업계획서에 작성하고 증빙을 묶음", "actors": "컨설팅기관 / 사업자", "inputs": "모든 사업정보, 산정결과, GIS, 사진, 계약·인허가·조사자료", "action": "사업계획서 작성 및 제출증빙 패키지 구성", "output": "완성 사업계획서 + 제출용 증빙 패키지", "next": "T14", "question": "작성·복붙·파일관리에서 시간이 많이 드는 부분은 무엇인가요?"}, {"id": "T14", "phase": "신청·평가", "phase_label": "등록 신청·평가", "title": "등록 신청·타당성평가·보완", "desc": "사업자가 등록을 신청하면 운영기관이 타당성평가를 실시하고, 평가결과에 따라 등록·보완·부적합으로 처리", "actors": "사업자 / 컨설팅기관 ↔ 운영기관", "inputs": "사업계획서, 증빙파일, 등록부 입력정보, 타당성평가 결과·보완의견", "action": "등록 신청 → 타당성평가 → 보완 시 사업자 수정 제출 → 재평가 과정을 수행하며, 부적합 시 등록 불가", "output": "등록신청 기록 + 타당성평가 결과 + 보완·수정 제출 이력 + 사업 등록 여부", "next": "등록 완료 시 T15 / 보완 시 T14 반복 / 부적합 시 종료", "question": "등록·타당성평가·보완 과정에서 실제로 가장 많은 시간이나 반복작업이 발생하는 지점은 어디인가요?"}, {"id": "T15", "phase": "등록 후", "phase_label": "등록 후 관리", "title": "사업이행 및 등록 후 관리", "desc": "등록 후 사업을 이행하면서 사업계획 변경사항을 관리하고, 정해진 주기에 따라 모니터링·검증·인증 절차를 수행", "actors": "사업자 / 컨설팅기관 / 검증기관 / 운영기관 / 산림청", "inputs": "등록 사업계획서, 사업 변경사항, 장기 이력, 모니터링 자료, 검증·인증 관련 의견", "action": "등록 후 관리를 두 하위절차로 수행: (A) 사업계획 변경관리, (B) 모니터링·검증·인증", "output": "사업계획 변경 이력 + 사업이행 기록 + 모니터링보고서 + 검증보고서 + 인증심사/위원회 결과 + 인증서 + 보완 이력", "next": "변경 발생 시 A 절차 / 정해진 모니터링·인증 주기에는 B 절차 반복", "question": "등록 후 관리에서 변경관리와 모니터링·검증·인증 중 어떤 부분에 시간·반복작업·전문적 판단이 가장 많이 필요한가요?", "subflows": [{"label":"T15-A 사업계획 변경관리","actors":"사업자 ↔ 운영기관","flow":"사업계획서 변경 신청(사업자) → 신청 접수(운영기관) → 사업계획서 변경 제출(사업자) → 타당성평가(운영기관) → 사업계획서 변경 등록","note":"사업계획서 등록 이후 세부 진행사항 등이 변경된 경우 수행"},{"label":"T15-B 모니터링·검증·인증","actors":"사업자 → 검증기관 → 운영기관 → 산림청","flow":"모니터링 보고서(사업자) → 검증 보고서(검증기관) → 인증심사(운영기관) → 탄소흡수원증진위원회(산림청) → 인증서 발급","note":"검증·인증 단계에서 보완 요구가 있으면 사업자가 수정 제출하며, 부적합 시 해당 절차에서 부적합 처리"}]}];
+// IMPORTANT: Google Apps Script must enforce the IRB approved recruitment cap and store contact separately; the client cannot verify either.
+const CONFIG={IRB_APPROVAL_NUMBER:"KKUIRB-202611-HR-374",GAS_URL:"https://script.google.com/macros/s/AKfycbwWUKiJzb8375rc1sXX6s2FDloFKWRnl5nPc3vG9eCcWQ2lVxjmxj36Op5nppkI-I4OVw/exec"};
+const screens=["consent","respondent","workflow","experience","digital","ai","incentive","confirm"];
+const labels={consent:"동의",respondent:"기본정보",workflow:"업무지도",experience:"업무부담",digital:"디지털 지원",ai:"AI 경험",incentive:"사례·인터뷰",confirm:"제출 확인"};
 let current="cover", activePhase="사업 진입", workflowSub="overview";
-let st=JSON.parse(localStorage.getItem("forestCarbonSurveyV07")||'{"reviews":{},"missing":[],"meta":{},"burden":{},"contact":{}}');
+const consentDocumentsViewed={research:false,privacy:false};
+function consentDocumentsValid(){return consentDocumentsViewed.research && consentDocumentsViewed.privacy;}
+function updateConsentDocumentStatus(){
+ const status=$("documentReadStatus");
+ if(status) status.textContent=`문서 확인: 연구대상자 설명문 ${consentDocumentsViewed.research?"확인함":"미확인"} · 개인정보 동의서 ${consentDocumentsViewed.privacy?"확인함":"미확인"}`;
+}
+function initializeConsentDocumentTracking(){
+ [["researchDocument","research"],["privacyDocument","privacy"]].forEach(([id,key])=>{
+  const doc=$(id); if(!doc)return;
+  doc.addEventListener("toggle",()=>{if(doc.open){consentDocumentsViewed[key]=true;updateConsentDocumentStatus();}});
+ });
+ updateConsentDocumentStatus();
+}
+let st=JSON.parse(sessionStorage.getItem("forestCarbonSurveyV020")||'{"reviews":{},"missing":[],"meta":{},"burden":{},"contact":{}}');
 const $=id=>document.getElementById(id);
+const escapeHtml=x=>String(x??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
 
-function persist(){localStorage.setItem("forestCarbonSurveyV07",JSON.stringify(st));}
+function persist(){sessionStorage.setItem("forestCarbonSurveyV020",JSON.stringify(st));}
 function renderNav(){ $("navwrap").innerHTML=screens.map((s,i)=>`<button class="navstep ${current===s?"active":""}" onclick='navTo(${JSON.stringify(s)})'>${i+1}. ${labels[s]}</button>`).join(""); }
 
 function respondentValid(){
@@ -207,17 +463,28 @@ function respondentValid(){
   return !!(st.meta.org && st.meta.rtype && st.meta.career && st.meta.age && st.meta.gender && st.meta.region);
 }
 function navTo(id){
-  const targetIndex=screens.indexOf(id);
-  const currentIndex=screens.indexOf(current);
-  if(targetIndex>0 && (!document.getElementById("consentResearch").checked || !document.getElementById("consentData").checked)){
-    alert("먼저 연구 참여 동의 항목을 확인해 주세요.");
-    navigate("consent"); return;
-  }
-  if(targetIndex>1 && !respondentValid()){
-    alert("응답자 정보의 필수 항목(*)을 먼저 입력해 주세요.");
-    navigate("respondent"); return;
-  }
-  navigate(id);
+ const targetIndex=screens.indexOf(id);
+ if(targetIndex<0){navigate(id);return;}
+ const order=["consent","respondent","workflow","experience","digital","incentive"];
+ const validators={consent:consentIssues,respondent:respondentIssues,workflow:workflowIssues,experience:experienceIssues,digital:digitalIssues,incentive:contactIssues};
+ for(const page of order){
+  const pageIndex=screens.indexOf(page);
+  if(targetIndex<=pageIndex)break;
+  const issues=validators[page]();
+  if(issues.length){navigate(page);showValidationAlert(issues,page);return;}
+ }
+ navigate(id);
+}
+function consentValid(){return $("consentResearch").checked && $("consentData").checked;}
+function workflowValid(){return !!(st.workflowOverall?.rating && tasks.every(t=>st.reviews[t.id]?.judgment));}
+function burdenPhaseValid(){const b=st.burden||{};return !!(b.duration && b.time?.length && b.hard?.length && b.error?.length && b.repeat?.length);}
+function digitalValid(){const b=st.burden||{};return !!(b.digital?.length && b.support?.length);}
+function contactValid(){const phone=$("phone").value.replace(/[^0-9]/g,"");const e=$("email").value.trim();return !!($("giftName").value.trim() && /^01[0-9]{8,9}$/.test(phone) && (!e||/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)));}
+function saveContact(){st.contact={name:$("giftName").value.trim(),phone:$("phone").value.trim(),email:$("email").value.trim(),interviewOptIn:$("interviewYes").checked,interviewChoice:$("interviewYes").checked?"yes":$("interviewNo").checked?"no":"",interviewNote:$("interviewNote").value.trim()};persist();}
+function nextFromIncentive(){const issues=contactIssues();if(issues.length)return showValidationAlert(issues,"incentive");saveContact();navigate("confirm");}
+function renderChecklist(){
+ const rows=[["연구 참여 및 개인정보 동의",consentValid()],["응답자 기본정보",respondentValid()],["업무지도 검토 T01~T15",workflowValid()],["업무부담 Q11~Q16",burdenPhaseValid()],["디지털 지원 수요 Q17~Q18",digitalValid()],["사례비 지급 연락정보",contactValid()]];
+ $("completionChecklist").innerHTML=rows.map(([n,ok])=>`<div class="status-line"><span>${n}</span><span class="${ok?"good":"bad"}">${ok?"완료":"확인 필요"}</span></div>`).join("");
 }
 
 function navigate(id){
@@ -237,26 +504,120 @@ function navigate(id){
   if(id==="workflow"){
     renderWorkflowSurvey(); renderMissing();
   }
-  if(id==="experience"){
-    renderExperiencePage();
-  }
+  if(["experience","digital","ai"].includes(id)){renderExperiencePage();}
+  if(id==="confirm"){saveContact();renderChecklist();}
 
   document.documentElement.scrollTop=0;
   document.body.scrollTop=0;
   setTimeout(()=>target.scrollIntoView({block:"start"}),0);
 }
-document.addEventListener("DOMContentLoaded",()=>{document.querySelectorAll(".screen").forEach(x=>x.style.display="none");$("cover").style.display="block";$("cover").classList.add("active");$("startBtn").addEventListener("click",()=>navigate("consent"));});
+document.addEventListener("DOMContentLoaded",()=>{initializeConsentDocumentTracking();document.querySelectorAll(".screen").forEach(x=>x.style.display="none");$("cover").style.display="block";$("cover").classList.add("active");$("startBtn").addEventListener("click",()=>navigate("consent"));});
+
+
+function showConsentAlert(){
+ const missing=[];
+ if(!consentDocumentsViewed.research) missing.push('연구대상자 설명문 및 동의서 전문 펼쳐서 확인');
+ if(!consentDocumentsViewed.privacy) missing.push('개인정보 수집 및 이용 동의서 전문 펼쳐서 확인');
+ if(!$('consentResearch').checked) missing.push("연구 참여: '예' 선택");
+ if(!$('consentData').checked) missing.push("개인정보 수집·이용: '동의함' 선택");
+ const msg=missing.length?('다음 항목을 완료해 주세요.\n\n'+missing.map((v,i)=>`${i+1}. ${v}`).join('\n')):"두 동의서 전문을 각각 확인하고 동의해 주세요.";
+ $('consentAlertMessage').textContent=msg;
+ $('consentAlertMessage').style.whiteSpace='pre-line';
+ const overlay=$('consentAlertOverlay');overlay.classList.add('show');overlay.setAttribute('aria-hidden','false');
+ $('consentAlertClose').focus();
+}
+let validationTarget=null;
+function closeConsentAlert(){
+ const overlay=$('consentAlertOverlay');overlay.classList.remove('show');overlay.setAttribute('aria-hidden','true');
+ const target=validationTarget;validationTarget=null;
+ if(target){
+   const el=$(target)||document.querySelector(target.startsWith('#')?target:'#'+target);
+   if(el){el.scrollIntoView({behavior:'smooth',block:'center'});
+     el.classList.add('needs-attention');
+     setTimeout(()=>el.classList.remove('needs-attention'),4200);
+     if(el.matches('input,select,textarea,button'))el.focus({preventScroll:true});
+   }
+ }
+}
+function showValidationAlert(issues,page){
+ if(!issues.length)return;
+ const first=issues[0];validationTarget=first.target||null;
+ $('consentAlertTitle').textContent='응답 확인이 필요합니다';
+ $('consentAlertMessage').textContent='다음 항목을 확인해 주세요.\n\n'+issues.map((v,i)=>`${i+1}. ${v.message}`).join('\n');
+ $('consentAlertMessage').style.whiteSpace='pre-line';
+ const overlay=$('consentAlertOverlay');overlay.classList.add('show');overlay.setAttribute('aria-hidden','false');
+ $('consentAlertClose').focus();
+}
+function consentIssues(){
+ const issues=[];
+ if(!consentDocumentsViewed.research)issues.push({message:'연구대상자 설명문 및 동의서 전문을 펼쳐 확인해 주세요.',target:'researchDocument'});
+ if(!consentDocumentsViewed.privacy)issues.push({message:'개인정보 수집 및 이용 동의서 전문을 펼쳐 확인해 주세요.',target:'privacyDocument'});
+ if(!$('consentResearch').checked)issues.push({message:"연구 참여 동의에서 '예'를 선택해 주세요.",target:'consentResearch'});
+ if(!$('consentData').checked)issues.push({message:"개인정보 수집·이용에서 '동의함'을 선택해 주세요.",target:'consentData'});
+ return issues;
+}
+function respondentIssues(){
+ saveRespondent();
+ return [['org','Q1. 소속/기관명'],['rtype','Q2. 현재 역할'],['career','Q3. 산림탄소 관련 업무경력'],['age','Q5. 연령대'],['gender','Q6. 성별'],['region','Q7. 주요 업무 수행지역']]
+   .filter(([id])=>!$(id).value.trim()).map(([id,name])=>({message:name+'을(를) 입력하거나 선택해 주세요.',target:id}));
+}
+function workflowIssues(){
+ const issues=[];
+ if(!st.workflowOverall?.rating)issues.push({message:'Q8. 전체 업무 프로세스 적절성을 평가해 주세요.',target:'overallScale'});
+ for(const t of tasks){if(!st.reviews[t.id]?.judgment)issues.push({message:t.id+'. '+t.title+' 업무를 검토해 주세요.',target:'card-'+t.id});}
+ return issues;
+}
+function experienceIssues(){
+ saveBurden();const b=st.burden||{};
+ return [['duration','Q11. 사업 준비·등록 소요기간','duration'],['time','Q12. 시간·노력이 많이 드는 업무','timeTasks'],['hard','Q13. 전문적 판단이 필요한 업무','hardTasks'],['error','Q14. 실수·누락하기 쉬운 업무','errorTasks'],['repeat','Q15. 반복적으로 발생하는 작업','repeatChecks']]
+   .filter(([key])=>Array.isArray(b[key])?!b[key].length:!b[key])
+   .map(([key,name,target])=>({message:name+'에 응답해 주세요.',target}));
+}
+function digitalIssues(){
+ saveBurden();const b=st.burden||{};
+ return [['digital','Q17. 디지털 지원을 받고 싶은 업무','digitalTasks'],['support','Q18. 유용한 디지털 지원 방식','supportChecks']]
+   .filter(([key])=>!b[key]?.length).map(([key,name,target])=>({message:name+'에 응답해 주세요.',target}));
+}
+function contactIssues(){
+ const issues=[];const phone=$('phone').value.replace(/[^0-9]/g,'');const email=$('email').value.trim();
+ if(!$('giftName').value.trim())issues.push({message:'Q24. 성명을 입력해 주세요.',target:'giftName'});
+ if(!/^01[0-9]{8,9}$/.test(phone))issues.push({message:'Q24. 휴대전화번호를 확인해 주세요. (숫자 10~11자리)',target:'phone'});
+ if(email&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))issues.push({message:'Q24. 이메일 주소 형식이 올바르지 않습니다. 선택사항이므로 비워두셔도 됩니다.',target:'email'});
+ return issues;
+}
 
 function nextFromConsent(){
-  if(!$("consentResearch").checked||!$("consentData").checked) return alert("연구 참여 및 응답 활용 동의가 필요합니다.");
-  st.consent={research:true,data:true,at:new Date().toISOString()}; persist(); navigate("respondent");
+ if(!consentDocumentsValid() || !consentValid()){
+  showConsentAlert();
+  return;
+ }
+ st.consent={research:true,data:true,documents_opened:{research:true,privacy:true},at:new Date().toISOString(),document_version:"연구대상자용 설명문 및 동의서 ver.1.0",privacy_document_version:"개인정보 수집 및 이용 동의서 온라인 설문조사용",survey_version:"v0.33",irb_approval_number:CONFIG.IRB_APPROVAL_NUMBER,method:"two_separate_yes_no_decisions"};persist();navigate("respondent");
+}
+
+function toggleOther(selectId, inputId){
+ const input=$(inputId); const show=$(selectId).value==="기타";
+ input.style.display=show?"block":"none";
+ if(!show)input.value="";
+}
+function toggleCheckedOther(selector,inputId){
+ const input=$(inputId); const other=[...document.querySelectorAll(selector)].some(x=>x.checked && x.value==="기타");
+ input.style.display=other?"block":"none";
+ if(!other)input.value="";
+}
+function refreshOtherFields(){
+ toggleOther("rtype","rtypeOther");toggleOther("region","regionOther");
+ toggleCheckedOther("input[data-repeat]","repeatOther");
+ toggleCheckedOther("input[data-support]","supportOther");
+ toggleCheckedOther("input[data-ai-task]","aiTaskOther");
+ toggleCheckedOther("input[data-ai-difficulty]","aiDifficultyOther");
 }
 function saveRespondent(){
- st.meta={org:$("org").value.trim(),rtype:$("rtype").value,career:$("career").value,experience:$("experienceTypes").value.trim(),age:$("age").value,gender:$("gender").value,region:$("region").value};persist();
+ toggleOther("rtype","rtypeOther");toggleOther("region","regionOther");
+ st.meta={org:$("org").value.trim(),rtype:$("rtype").value,rtypeOther:$("rtypeOther").value.trim(),regionOther:$("regionOther").value.trim(),career:$("career").value,experience:$("experienceTypes").value.trim(),age:$("age").value,gender:$("gender").value,region:$("region").value};persist();
 }
 function nextFromRespondent(){
  saveRespondent();
- if(!st.meta.org||!st.meta.rtype||!st.meta.career||!st.meta.age||!st.meta.gender||!st.meta.region) return alert("빨간 별표(*)가 표시된 필수 항목을 모두 입력해 주세요.");
+ const issues=respondentIssues();if(issues.length)return showValidationAlert(issues,"respondent");
  navigate("workflow");
 }
 ["org","rtype","career","experienceTypes","age","gender","region"].forEach(id=>$(id).addEventListener("input",saveRespondent));
@@ -266,7 +627,7 @@ function renderWorkflowSurvey(){
   "사업 진입":{label:"사업 시작 검토",sub:"참여 가능성·유형 판단",cls:"entry"},
   "등록 전":{label:"사업 준비",sub:"인허가·권리·적합성 확인",cls:"prereg"},
   "사업설계":{label:"사업 설계·조사",sub:"GIS·현장조사·사업평가",cls:"design"},
-  "산정":{label:"탄소량 산정",sub:"입력자료·계수·자동산출",cls:"calc"},
+  "산정":{label:"탄소량 산정",sub:"입력자료·계수·흡수량 산정",cls:"calc"},
   "사업계획":{label:"사업계획 작성",sub:"모니터링·계획서·증빙",cls:"plan"},
   "신청·평가":{label:"등록 신청·평가",sub:"신청·타당성평가·보완",cls:"review"},
   "등록 후":{label:"등록 후 관리",sub:"이행·모니터링·검증·인증",cls:"post"}
@@ -319,21 +680,23 @@ function renderWorkflowSurvey(){
       ];
       return `<div class="taskCard ${r.judgment?"":"requiredMissing"}" id="card-${t.id}">
         <div class="rowtop"><span class="id">${t.id}</span><h3>${t.title}</h3></div>
-        <p class="note">${t.desc}</p>
+        <div class="info-part"><div class="section-label">검토 대상 업무 · 설명</div><p class="note">${t.desc}</p>
+        <details><summary class="detailToggle">업무 상세 설명 (접기·펼치기)</summary>
+        ${t.subflows?`<div class="subflows">${t.subflows.map(sf=>`<div class="subflow"><div class="subflowHead">${sf.label}</div><div class="subflowLine"><b>수행주체</b> · ${sf.actors}</div><div class="subflowLine"><b>절차</b> · ${sf.flow}</div><div class="subflowLine"><b>참고</b> · ${sf.note}</div></div>`).join("")}</div>`:""}
         <div class="infoGrid">
           <div class="ibox"><small>① 준비할 자료</small>${t.inputs}</div>
           <div class="ibox"><small>② 이 단계에서 하는 일</small>${t.action}</div>
           <div class="ibox"><small>③ 이 단계가 끝나면 남는 것</small>${t.output}</div>
           <div class="ibox"><small>④ 다음으로 이어지는 단계</small>${t.next}</div>
         </div>
-        <div class="note"><b>검토 포인트</b> · ${t.question}</div>
-        <div class="taskQuestion"><span class="requiredStar">*</span> 위 업무 설명은 실제 업무와 일치합니까?</div>
+        <div class="note"><b>검토 포인트</b> · ${t.question}</div></details></div>
+        <div class="answer-part"><div class="section-label">업무 검토 및 응답</div><div class="taskQuestion"><span class="requiredStar">*</span> 위 업무 설명은 실제 업무와 일치합니까?</div>
         <div class="choices">
           ${options.map(j=>`<button type="button" class="choice ${r.judgment===j?"sel":""}" onclick='judge(${JSON.stringify(t.id)},${JSON.stringify(j)})'>${j}</button>`).join("")}
         </div>
         <label>수정이 필요하거나 실제 업무와 다른 점이 있다면 작성해 주세요. <span class="note">(선택)</span>
-          <textarea rows="3" oninput='comment(${JSON.stringify(t.id)},this.value)'>${r.comment||""}</textarea>
-        </label>
+          <textarea rows="3" oninput='comment(${JSON.stringify(t.id)},this.value)'>${escapeHtml(r.comment||"")}</textarea>
+        </label></div>
       </div>`;
     }).join("")}
    </section>`).join("");
@@ -383,42 +746,48 @@ function updateWorkflowCounter(){
 }
 
 function nextFromWorkflow(){
- const missing=[];
- if(!st.workflowOverall?.rating) missing.push("전체 업무 프로세스 적절성");
- tasks.forEach(t=>{if(!st.reviews[t.id]?.judgment) missing.push(t.id+" "+t.title);});
- if(missing.length){
-   alert(`필수 응답이 남아 있습니다.\n\n${missing.slice(0,6).join("\n")}${missing.length>6?`\n외 ${missing.length-6}개`:""}`);
-   if(!st.workflowOverall?.rating){
-     window.scrollTo({top:$("workflow").offsetTop,behavior:"smooth"});
-   }else{
-     const first=tasks.find(t=>!st.reviews[t.id]?.judgment);
-     document.getElementById("card-"+first.id)?.scrollIntoView({behavior:"smooth",block:"center"});
-   }
-   return;
- }
+ const issues=workflowIssues();if(issues.length)return showValidationAlert(issues,"workflow");
  navigate("experience");
 }
 
 function addMissing(){let m={pos:$("npos").value.trim(),title:$("ntitle").value.trim(),desc:$("ndesc").value.trim()};if(!m.title)return alert("업무명을 입력해 주세요.");st.missing.push(m);["npos","ntitle","ndesc"].forEach(i=>$(i).value="");persist();renderMissing();}
-function renderMissing(){$("missing").innerHTML=st.missing.length?st.missing.map(m=>`<div style="padding:7px 0"><b>${m.title}</b> · ${m.pos||"위치 미지정"} — ${m.desc}</div>`).join(""):"아직 추가된 업무가 없습니다.";}
+function renderMissing(){$("missing").innerHTML=st.missing.length?st.missing.map(m=>`<div style="padding:7px 0"><b>${escapeHtml(m.title)}</b> · ${escapeHtml(m.pos||"위치 미지정")} — ${escapeHtml(m.desc)}</div>`).join(""):"아직 추가된 업무가 없습니다.";}
 function taskPicker(container,key){$ (container).innerHTML=tasks.map(t=>`<label class="taskpick"><input type="checkbox" data-key="${key}" value="${t.id}" onchange="pickMax3(this,'${key}')"><span><b>${t.id} ${t.title}</b><br><span class="note">${t.phase_label}</span></span></label>`).join("");}
-function pickMax3(el,key){let a=[...document.querySelectorAll(`input[data-key="${key}"]:checked`)];if(a.length>3){el.checked=false;alert("최대 3개까지 선택할 수 있습니다.");}saveBurden();}
+function pickMax3(el,key){let a=[...document.querySelectorAll(`input[data-key="${key}"]:checked`)];if(a.length>3){el.checked=false;alert("3개까지 선택할 수 있습니다.");}saveBurden();}
 const repeats=["동일 정보 반복 입력","여러 문서 간 복사·붙여넣기","자료·증빙파일 찾기","최신 기준·방법론 확인","계산용 데이터 재가공","담당기관에 문의","보완의견 확인 및 수정","파일 버전 관리","과거 사업자료 찾기","일정·기한 관리","기타"];
 const supports=["내 사업에 필요한 업무 자동 안내","필요 서류·증빙 체크리스트","기준·방법론 쉽게 설명","사업정보 한 번 입력 후 재사용","탄소량 산정자료 자동 정리","사업계획서 작성 지원","보완의견 대응 지원","파일·사업이력 관리","모니터링 일정 알림","기타"];
+const aiTasks=["제도·기준·방법론 검색 또는 설명","사업계획서 등 문서 작성·수정","문서 요약·정리","자료·데이터 정리","탄소량 산정 관련 도움","보완의견 대응","아이디어·초안 작성","기타"];
+const aiDifficulties=["최신 기준·방법론 확인","근거·출처 확인","사업별 맥락 유지","자료·파일 관리","탄소량 산정의 정확성 확인","여러 문서 간 정보 일관성 유지","개인·기관정보 입력에 대한 부담","기타"];
+function saveAI(){
+ toggleCheckedOther("input[data-ai-task]","aiTaskOther");toggleCheckedOther("input[data-ai-difficulty]","aiDifficultyOther");
+ st.ai={taskOther:$("aiTaskOther").value.trim(),difficultyOther:$("aiDifficultyOther").value.trim(),use:$("aiUse")?.value||"",tasks:[...document.querySelectorAll("input[data-ai-task]:checked")].map(x=>x.value),helpful:$("aiHelpful")?.value||"",limits:$("aiLimits")?.value||"",difficulties:[...document.querySelectorAll("input[data-ai-difficulty]:checked")].map(x=>x.value)};persist();
+}
+function renderAI(){
+ if(!$("aiTaskChecks")) return;
+ $("aiTaskChecks").innerHTML=aiTasks.map(x=>`<label class="checkline"><input type="checkbox" data-ai-task value="${x}" onchange="saveAI()"><span>${x}</span></label>`).join("");
+ $("aiDifficultyChecks").innerHTML=aiDifficulties.map(x=>`<label class="checkline"><input type="checkbox" data-ai-difficulty value="${x}" onchange="saveAI()"><span>${x}</span></label>`).join("");
+ if(st.ai){
+   $("aiTaskOther").value=st.ai.taskOther||"";$("aiDifficultyOther").value=st.ai.difficultyOther||"";
+   $("aiUse").value=st.ai.use||""; $("aiHelpful").value=st.ai.helpful||""; $("aiLimits").value=st.ai.limits||"";
+   document.querySelectorAll("input[data-ai-task]").forEach(x=>x.checked=(st.ai.tasks||[]).includes(x.value));
+   document.querySelectorAll("input[data-ai-difficulty]").forEach(x=>x.checked=(st.ai.difficulties||[]).includes(x.value));
+   toggleCheckedOther("input[data-ai-task]","aiTaskOther");toggleCheckedOther("input[data-ai-difficulty]","aiDifficultyOther");
+ }
+}
 function renderChecks(){
  $("repeatChecks").innerHTML=repeats.map(x=>`<label class="checkline"><input type="checkbox" data-repeat value="${x}" onchange="saveBurden()"><span>${x}</span></label>`).join("");
  $("supportChecks").innerHTML=supports.map(x=>`<label class="checkline"><input type="checkbox" data-support value="${x}" onchange="saveBurden()"><span>${x}</span></label>`).join("");
 }
 function saveBurden(){
+ toggleCheckedOther("input[data-repeat]","repeatOther");toggleCheckedOther("input[data-support]","supportOther");
  const get=k=>[...document.querySelectorAll(`input[data-key="${k}"]:checked`)].map(x=>x.value);
- st.burden={duration:$("duration").value,time:get("time"),hard:get("hard"),error:get("error"),digital:get("digital"),repeat:[...document.querySelectorAll("input[data-repeat]:checked")].map(x=>x.value),support:[...document.querySelectorAll("input[data-support]:checked")].map(x=>x.value),hardestText:$("hardestText").value};persist();
+ st.burden={repeatOther:$("repeatOther").value.trim(),supportOther:$("supportOther").value.trim(),duration:$("duration").value,time:get("time"),hard:get("hard"),error:get("error"),digital:get("digital"),repeat:[...document.querySelectorAll("input[data-repeat]:checked")].map(x=>x.value),support:[...document.querySelectorAll("input[data-support]:checked")].map(x=>x.value),hardestText:$("hardestText").value};persist();
 }
 $("duration").addEventListener("change",saveBurden);$("hardestText").addEventListener("input",saveBurden);
-function nextFromExperience(){
-  saveBurden();
-  if(!$("duration").value) return alert("빨간 별표(*)가 표시된 필수 항목을 입력해 주세요.");
-  navigate("incentive");
-}
+function burdenValid(){return burdenPhaseValid()&&digitalValid();}
+function nextFromExperience(){saveBurden();const issues=experienceIssues();if(issues.length)return showValidationAlert(issues,"experience");navigate("digital");}
+function nextFromDigital(){saveBurden();const issues=digitalIssues();if(issues.length)return showValidationAlert(issues,"digital");navigate("ai");}
+function nextFromAI(){saveAI();navigate("incentive");}
 
 function renderExperiencePage(){
   // The page structure is static; these calls repopulate all dynamic option lists.
@@ -427,6 +796,7 @@ function renderExperiencePage(){
   taskPicker("errorTasks","error");
   taskPicker("digitalTasks","digital");
   renderChecks();
+  renderAI();
 
   // Restore saved values where possible.
   if(st.burden){
@@ -441,22 +811,33 @@ function renderExperiencePage(){
     restore("digital",st.burden.digital||[]);
     document.querySelectorAll("input[data-repeat]").forEach(x=>x.checked=(st.burden.repeat||[]).includes(x.value));
     document.querySelectorAll("input[data-support]").forEach(x=>x.checked=(st.burden.support||[]).includes(x.value));
+    $("repeatOther").value=st.burden.repeatOther||"";$("supportOther").value=st.burden.supportOther||"";
+    toggleCheckedOther("input[data-repeat]","repeatOther");toggleCheckedOther("input[data-support]","supportOther");
   }
 }
 
 function makeId(){return "FC-"+Date.now().toString(36)+"-"+Math.random().toString(36).slice(2,7);}
 async function submitAll(){
- saveRespondent();saveBurden();
- if(!$("consentResearch").checked||!$("consentData").checked)return alert("연구 참여 동의 항목을 확인해 주세요.");
- if(!$("giftName").value.trim()||!$("phone").value.trim())return alert("사례 지급을 위한 성함과 휴대전화를 입력해 주세요.");
- st.contact={name:$("giftName").value.trim(),phone:$("phone").value.trim(),email:$("email").value.trim(),interviewOptIn:$("interviewOptIn").checked,interviewNote:$("interviewNote").value.trim()};persist();
- if(CONFIG.GAS_URL.startsWith("__")){$("submitState").className="submitstate warn";$("submitState").textContent="Google Sheets 연결 주소가 아직 설정되지 않았습니다. SETUP_GOOGLE_SHEETS.txt 안내에 따라 웹앱 URL을 연결해 주세요.";return;}
+ saveRespondent();saveBurden();saveAI();saveContact();
+ if(!consentValid()||!consentDocumentsValid()||!respondentValid()||!workflowValid()||!burdenValid()||!contactValid()){
+   const checks=[['consent',consentIssues],['respondent',respondentIssues],['workflow',workflowIssues],['experience',experienceIssues],['digital',digitalIssues],['incentive',contactIssues]];
+   const first=checks.find(([page,fn])=>fn().length);
+   if(first){navigate(first[0]);showValidationAlert(first[1](),first[0]);}
+   else{$("submitState").className="submitstate warn";$("submitState").textContent="필수 문항을 확인해 주세요.";renderChecklist();}
+   return;
+ }
  const sid=st.submission_id||makeId();st.submission_id=sid;persist();
- const payload={submission_id:sid,submitted_at:new Date().toISOString(),consent:st.consent,meta:st.meta,workflowOverall:st.workflowOverall||{},reviews:tasks.map(t=>({task_id:t.id,phase:t.phase,phase_label:t.phase_label,task_title:t.title,...(st.reviews[t.id]||{})})),missing:st.missing,burden:st.burden,contact:st.contact};
- const btn=$("submitBtn");btn.disabled=true;btn.textContent="제출 중...";
- try{const body=new URLSearchParams();body.set("payload",JSON.stringify(payload));await fetch(CONFIG.GAS_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"application/x-www-form-urlencoded;charset=UTF-8"},body:body.toString()});$("submissionText").textContent="제출 ID: "+sid;navigate("done");}
- catch(e){$("submitState").className="submitstate warn";$("submitState").textContent="제출에 실패했습니다. 인터넷 연결과 Google Apps Script 설정을 확인해 주세요.";btn.disabled=false;btn.textContent="완료 및 제출";}
+ const payload={submission_id:sid,submitted_at:new Date().toISOString(),irb_approval_number:CONFIG.IRB_APPROVAL_NUMBER,consent:st.consent,meta:st.meta,workflowOverall:st.workflowOverall||{},reviews:tasks.map(t=>({task_id:t.id,phase:t.phase,phase_label:t.phase_label,task_title:t.title,...(st.reviews[t.id]||{})})),missing:st.missing,burden:st.burden,ai:st.ai||{},contact:st.contact};
+ const btn=$("submitBtn");btn.disabled=true;btn.textContent="전송 중...";
+ try{
+  const body=new URLSearchParams();body.set("payload",JSON.stringify(payload));
+  await fetch(CONFIG.GAS_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"application/x-www-form-urlencoded;charset=UTF-8"},body:body.toString()});
+  $("submissionText").textContent="전송 식별번호: "+sid;
+  navigate("done");
+  // This is only an outbound request: response status is opaque and the backend has not been verified.
+ }catch(e){$("submitState").className="submitstate warn";$("submitState").textContent="전송 요청에 실패했습니다. 인터넷 연결을 확인하고 다시 시도해 주세요.";btn.disabled=false;btn.textContent="최종 제출";}
 }
+
 renderWorkflowSurvey();renderMissing();renderExperiencePage();renderNav();
 </script>
 </body></html>
