@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="ko"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
-<title>산림탄소상쇄사업 업무지도 검토 및 행정부담 조사 v0.31</title>
+<title>산림탄소상쇄사업 업무지도 검토 및 행정부담 조사 (IRB v1.1)</title>
 <style>
 :root{--ink:#173f3a;--muted:#6c7975;--line:#dce4e1;--bg:#f6f8f7;--accent:#236d5f;--white:#fff}
 *{box-sizing:border-box} body{margin:0;background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:#18211e}
@@ -150,6 +150,17 @@ label{display:block;font-size:13px;color:#52605b;margin-bottom:12px}.qtitle{disp
 #sendingOverlay .sending-sub {font-size:12px;color:#64746d;margin:8px 0 0;}
 @keyframes sendingSpin {to {transform:rotate(360deg);}}
 @media (prefers-reduced-motion: reduce){#sendingOverlay .sending-spinner{animation:none;}}
+
+/* 연구 목적을 이해하기 위한 표지 도식: 설문 문항 및 응답 처리에는 영향을 주지 않음 */
+#cover .coverPurpose {margin:14px 0 14px;}
+#cover .coverPurpose p {margin:0 0 9px;}
+#cover .coverFlow {display:grid;grid-template-columns:minmax(0,1fr) 16px minmax(0,1fr) 16px minmax(0,1fr);align-items:stretch;gap:8px;margin:20px 0 20px;}
+#cover .coverFlowCard {display:flex;align-items:flex-start;gap:9px;border:1px solid #d9e7e0;border-radius:12px;padding:15px 11px;background:#f4f9f6;min-width:0;}
+#cover .coverFlowIcon {display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;background:#dcece3;color:#175a49;width:27px;height:27px;border-radius:50%;font-size:15px;font-weight:800;}
+#cover .coverFlowCard strong {display:block;font-size:13px;line-height:1.45;color:#173f3a;font-weight:800;word-break:keep-all;}
+#cover .coverFlowCard small {display:block;color:#556a60;font-size:11px;line-height:1.55;margin-top:6px;word-break:keep-all;}
+#cover .coverFlowArrow {align-self:center;justify-self:center;color:#4f8b76;font-size:19px;font-weight:700;}
+@media(max-width:760px){#cover .coverFlow{grid-template-columns:1fr;gap:6px}#cover .coverFlowCard{padding:11px 12px}#cover .coverFlowArrow{transform:rotate(90deg);font-size:19px;line-height:1;}}
 </style><style>
 /* v0.23: 동의서 문서 서식만 정리, 승인 문구는 유지 */
 #consent .section-label{font-size:17px;font-weight:750;letter-spacing:-.025em}
@@ -172,8 +183,17 @@ label{display:block;font-size:13px;color:#52605b;margin-bottom:12px}.qtitle{disp
 <h1>산림탄소상쇄사업 업무지도 검토 및 행정부담 조사</h1>
 <p>안녕하세요. 건국대학교 산림조경학과 박사과정 송승현입니다.</p>
 <p>저는 현재 <strong>「산림탄소상쇄제도 사업참여자의 행정부담 완화를 위한 AI 기반 업무지원 플랫폼 개발」</strong> 연구를 수행하고 있습니다.</p>
-<p>본 연구는 산림탄소상쇄사업을 준비하고 등록·관리하는 과정을 보다 쉽고 편리하게 지원할 수 있는 디지털 업무지원 플랫폼을 개발하는 것을 목적으로 합니다.</p>
-<p>이를 위해 본 조사에서는 연구자가 작성한 산림탄소상쇄사업 업무지도 초안을 검토하여 실제 업무흐름을 도출하고, 업무 수행 과정에서 경험하는 어려움 및 디지털 업무지원 수요를 확인하고자 합니다.</p>
+<div class="coverPurpose" aria-label="연구 목적 안내">
+<p>최근 생성형 AI는 문서작성, 정보정리, 의사결정 지원 등 다양한 전문업무에 활용되고 있습니다.</p>
+<p>본 연구는 산림탄소상쇄사업의 실제 업무흐름과 행정부담을 파악하고, 어떤 업무를 AI 기반 도구로 지원할 수 있는지 확인하여 실무형 업무지원 플랫폼 개발에 활용하고자 합니다.</p>
+</div>
+<div class="coverFlow" aria-label="연구 진행 흐름: 실제 업무흐름 파악, 행정부담 및 업무상 어려움 확인, AI·디지털 업무지원 요구사항 도출">
+  <div class="coverFlowCard"><span class="coverFlowIcon" aria-hidden="true">①</span><div><strong>실제 업무흐름 파악</strong><small>사업 준비부터 등록 후 관리까지</small></div></div>
+  <span class="coverFlowArrow" aria-hidden="true">→</span>
+  <div class="coverFlowCard"><span class="coverFlowIcon" aria-hidden="true">②</span><div><strong>행정부담·업무상 어려움 확인</strong><small>시간·노력, 전문적 판단, 반복작업 등</small></div></div>
+  <span class="coverFlowArrow" aria-hidden="true">→</span>
+  <div class="coverFlowCard"><span class="coverFlowIcon" aria-hidden="true">③</span><div><strong>AI·디지털 지원 요구사항 도출</strong><small>필요한 업무와 지원 기능 확인</small></div></div>
+</div>
 <p><strong>예상 소요시간: 약 20분</strong></p>
 <button class="primary" id="startBtn" type="button">검토 시작하기</button>
 <div class="meta">연구책임자: 김재현 교수 (건국대학교 산림조경학과)<br/>연구담당자: 송승현 (건국대학교 산림조경학과 박사과정)<br/>IRB 승인번호: KKUIRB-202611-HR-374<br/><br/>본 연구는 정인욱학술장학재단의 지원을 받아 수행됩니다.</div>
@@ -181,8 +201,8 @@ label{display:block;font-size:13px;color:#52605b;margin-bottom:12px}.qtitle{disp
 </section>
 <div class="topnav" id="topnav" style="display:none"><div class="navwrap" id="navwrap"></div></div>
 <section class="screen" id="consent"><div class="wrap"><div class="sectionHead"><h2>연구 참여 동의</h2><p>아래 IRB 승인 설명문과 동의서를 충분히 확인한 후 참여 여부를 결정해 주세요.</p></div>
-<div class="panel"><div class="section-label">① 연구대상자 설명서 및 온라인 연구 참여 동의서</div><p class="note">IRB 승인번호: KKUIRB-202611-HR-374 · 연구대상자용 설명문 및 동의서 ver.1.0</p>
-<details class="consent-document" id="researchDocument"><summary>연구대상자 설명문 및 동의서 전문 <span class="expand-hint">펼쳐서 확인하기</span></summary><div class="irb-original"><p class="irb-p">연구대상자용 설명문 및 동의서 ver.1.0</p>
+<div class="panel"><div class="section-label">① 연구대상자 설명서 및 온라인 연구 참여 동의서</div><p class="note">IRB 승인번호: KKUIRB-202611-HR-374 · 연구대상자용 설명문 및 동의서 ver.2.0</p>
+<details class="consent-document" id="researchDocument"><summary>연구대상자 설명문 및 동의서 전문 <span class="expand-hint">펼쳐서 확인하기</span></summary><div class="irb-original"><p class="irb-p">연구대상자용 설명문 및 동의서 ver.2.0</p>
 <p class="irb-p">(인간대상연구용)</p>
 <p class="irb-h">연구대상자 설명서</p>
 <p class="irb-p">연구과제명 : 산림탄소상쇄제도 사업참여자의 행정부담 완화를 위한 AI 기반 업무지원 플랫폼 개발</p>
@@ -211,11 +231,11 @@ label{display:block;font-size:13px;color:#52605b;margin-bottom:12px}.qtitle{disp
 소속기관명, 현재 역할, 업무경력, 주요 경험 사업유형, 주요 업무 수행지역, 연령대, 성별 등 기본정보
 산림탄소상쇄사업 전체 업무 프로세스의 적절성
 업무지도에 제시된 15개 세부업무가 실제 업무와 일치하는지 여부
-시간과 노력이 많이 드는 업무, 전문적 판단이 필요한 업무, 오류·누락이 발생하기 쉬운 업무, 반복·재작업이 발생하는 업무
+시간과 노력이 많이 드는 업무, 전문적 판단이 필요한 업무, 오류·누락이 발생하기 쉬운 업무, 반복·재작업이 발생하는 업무 및 행정적 요건·절차 이해, 행정적 요구사항 이행, 심리적 부담에 관한 경험(3문항)
 디지털 도구로 우선 지원받고 싶은 업무와 필요한 지원기능
 ChatGPT 등 생성형 AI의 산림탄소상쇄 관련 업무 활용 경험, 활용 업무, 활용상의 유용성 및 한계
 
-15개 세부업무 검토 문항은 모두 응답해야 하며, 직접 경험하지 않은 업무에 대해서는 ‘해당 업무 경험 없음’을 선택할 수 있습니다. 수정의견이나 자유서술 문항 등 선택응답 항목은 작성하지 않아도 됩니다.
+15개 세부업무 검토 문항은 모두 응답해야 하며, 직접 경험하지 않은 업무에 대해서는 ‘해당 업무 경험 없음’을 선택할 수 있습니다. 수정의견이나 자유서술 문항 등 선택응답 항목은 작성하지 않아도 됩니다. 행정부담 경험 문항에는 ‘판단할 만한 경험이 없다’ 항목을 제공하며, 업무상 어려움과 디지털 지원 수요에 관한 문항에서도 ‘해당 없음’, ‘지원 필요 없음’, ‘판단하기 어려움’ 등을 선택할 수 있습니다.
 설문 마지막에는 후속 심층인터뷰 안내를 받을 의사가 있는지 선택할 수 있습니다. 인터뷰 안내에 동의하더라도 인터뷰 참여가 확정되는 것은 아니며, 역할·업무경력·경험 사업유형 및 설문 응답특성의 다양성을 고려하여 일부 참여자를 선정합니다. 선정된 경우 연구자가 별도로 연락하여 연구내용과 일정을 안내하고 다시 참여 의사를 확인합니다.
 
 후속 인터뷰는 온라인 화상회의 방식으로 1인당 약 45~60분 진행됩니다. 인터뷰는 별도 동의를 받은 경우에만 음성으로 녹음하며, 화상회의 화면은 녹화하지 않습니다. 음성녹음에 동의하지 않는 경우 연구자가 연구노트를 작성하는 방식으로 진행합니다.</span></div></div>
@@ -229,14 +249,14 @@ ChatGPT 등 생성형 AI의 산림탄소상쇄 관련 업무 활용 경험, 활�
 <div class="irb-table"><div class="irb-table-row"><span>설문을 제출하기 전에 참여를 중단한 경우 해당 응답은 연구자료로 사용하지 않습니다. 후속 인터뷰에서 동의를 철회하는 경우, 그 시점까지 수집된 자료의 사용 여부는 귀하의 의사를 확인하여 처리합니다. 다만 자료가 개인을 식별할 수 없도록 비식별화되고 참여자와 자료 간 연결정보가 삭제된 이후에는 특정 참여자의 자료를 찾아 별도로 삭제하기 어려울 수 있습니다.</span></div></div>
 <p class="irb-h">8. 부작용 또는 위험요소 및 불편함</p>
 <div class="irb-table"><div class="irb-table-row"><span>업무상 어려움, 오류·누락, 보완 또는 재작업 경험을 떠올리거나 설명하는 과정에서 일시적인 심리적 불편감이나 피로를 느낄 수 있습니다. 또한 소속기관, 역할, 업무경력, 사업지역 및 구체적인 업무경험이 결합될 경우 개인 또는 기관이 추정될 가능성이 있습니다.
-선택응답 문항은 작성하지 않아도 되며, 필수 업무지도 문항에는 ‘해당 업무 경험 없음’ 선택지가 제공됩니다. 인터뷰 중 불편함이 있는 경우 해당 질문에 답하지 않거나 인터뷰를 중단할 수 있습니다.</span></div></div>
+선택응답 문항은 작성하지 않아도 되며, 필수 업무지도 문항에는 ‘해당 업무 경험 없음’ 선택지가 제공됩니다. 행정부담 경험과 업무상 어려움·디지털 지원 수요에 관한 문항에는 경험·해당 여부를 반영할 수 있는 별도 선택지가 제공됩니다. 인터뷰 중 불편함이 있는 경우 해당 질문에 답하지 않거나 인터뷰를 중단할 수 있습니다.</span></div></div>
 <p class="irb-h">9. 연구 참여에 따른 이익 또는 보상</p>
 <div class="irb-table"><div class="irb-table-row"><span>본 연구 참여로 귀하에게 직접적인 치료적 또는 경제적 이익이 보장되는 것은 아닙니다. 다만 귀하가 제공한 의견은 산림탄소상쇄사업의 실제 업무흐름과 업무상 어려움을 이해하고, 향후 업무지원 도구를 설계하는 데 활용될 수 있습니다.
 연구대상 기준을 충족하고 온라인 설문조사를 완료한 참여자에게는 감사의 의미로 3만원 상당의 모바일 상품권을 지급합니다. 설문을 완료하지 않은 경우에는 사례비를 지급하지 않습니다. 후속 심층인터뷰에 참여하는 경우 5만원 상당의 모바일 상품권을 별도로 지급합니다. 인터뷰가 시작된 이후 귀하가 자발적으로 참여를 중단하는 경우에도 약정된 사례비 전액을 지급합니다.</span></div></div>
 <p class="irb-h">10. 연구에 참여하지 않을 시 불이익</p>
 <div class="irb-table"><div class="irb-table-row"><span>귀하는 본 연구에 참여하지 않을 자유가 있습니다. 연구 참여를 거부하거나 참여 도중 중단하더라도 소속기관에서의 업무, 관계, 평가 또는 기타 어떠한 사항에도 불이익이 없습니다.</span></div></div>
 <p class="irb-h">11. 개인정보보호와 비밀보장</p>
-<div class="irb-table"><div class="irb-table-row"><span>본 연구에서 온라인 설문을 통해 수집하는 정보는 소속기관명, 현재 역할, 산림탄소 관련 업무경력, 주요 경험 사업유형, 주요 업무 수행지역, 연령대, 성별, 업무지도 검토 응답, 업무부담 및 디지털 업무지원 수요, 생성형 AI 활용 경험 및 활용상의 유용성·한계에 대한 응답, 자유서술 의견입니다.
+<div class="irb-table"><div class="irb-table-row"><span>본 연구에서 온라인 설문을 통해 수집하는 정보는 소속기관명, 현재 역할, 산림탄소 관련 업무경력, 주요 경험 사업유형, 주요 업무 수행지역, 연령대, 성별, 업무지도 검토 응답, 업무부담 및 행정부담 경험(학습·준수·심리적 부담), 디지털 업무지원 수요, 생성형 AI 활용 경험 및 활용상의 유용성·한계에 대한 응답, 자유서술 의견입니다.
 사례비 지급 및 후속 연락을 위해 성명, 휴대전화번호와 필요한 경우 이메일 주소를 별도로 수집합니다. 이러한 직접식별정보는 설문응답과 별도로 저장하며, 연구분석에는 사용하지 않습니다. 연구자료에는 연구용 식별번호를 부여하여 관리합니다.
 후속 심층인터뷰에서는 인터뷰 응답내용, 연구노트 및 별도 동의 시 음성녹음자료와 전사자료가 수집됩니다. 화상회의 화면은 녹화하지 않습니다. 음성자료는 전사 및 내용 확인을 위해 이용하며, 전사과정에서 성명·기관명 등 식별정보는 연구용 식별번호 또는 일반화된 표현으로 대체합니다. 음성녹음자료는 전사 및 내용확인이 완료된 후 연구에 더 이상 필요하지 않은 시점에 안전하게 삭제합니다.
 연구자료는 비밀번호 등 접근통제가 적용되는 저장공간에 보관하며 연구책임자와 연구담당자만 접근할 수 있도록 관리합니다. 연구결과 발표 또는 논문 작성 시 개인의 이름과 연락처는 공개하지 않으며, 소속기관·역할·지역 등 정보의 조합으로 개인이나 기관이 추정될 가능성이 있는 경우 해당 정보를 범주화하거나 일반화합니다.
@@ -286,6 +306,7 @@ ChatGPT 등 생성형 AI의 산림탄소상쇄 관련 업무 활용 경험, 활�
 <p class="privacy-bullet">• 업무지도 수정·보완 의견</p>
 <p class="privacy-bullet">• 누락된 업무에 대한 의견</p>
 <p class="privacy-bullet">• 사업 준비 및 등록 소요기간</p>
+<p class="privacy-bullet">• 행정부담 경험(학습비용·준수비용·심리적 비용 관련 3문항)</p>
 <p class="privacy-bullet">• 시간과 노력이 많이 드는 업무</p>
 <p class="privacy-bullet">• 전문적 판단이 필요한 업무</p>
 <p class="privacy-bullet">• 실수·누락하기 쉬운 업무</p>
@@ -394,10 +415,15 @@ ChatGPT 등 생성형 AI의 산림탄소상쇄 관련 업무 활용 경험, 활�
 </div>
 </div></section>
 <section class="screen" id="experience"><div class="wrap">
-<div class="sectionHead"><h2>5. 실제 업무 경험 및 업무부담</h2><p>Q11~Q16. 실제 업무 경험을 바탕으로 응답해 주세요. 빨간 별표(*)는 필수 응답입니다.</p></div>
+<div class="sectionHead"><h2>5. 실제 업무 경험 및 업무부담</h2><p>Q11~Q16 및 Q11-1~Q11-3. 실제 업무 경험을 바탕으로 응답해 주세요. 빨간 별표(*)는 필수 응답입니다.</p></div>
 <div class="panel">
 <label><span class="qtitle">산림탄소상쇄사업 1건을 준비하여 등록하기까지 일반적으로 어느 정도 시간이 소요됩니까? <span class="requiredStar">*</span></span>
 <select id="duration"><option value="">선택</option><option>1주 미만</option><option>1주~1개월</option><option>1~3개월</option><option>3~6개월</option><option>6개월 이상</option><option>사업에 따라 차이가 큼</option><option>잘 모르겠음</option></select></label>
+<div class="notice" style="margin-top:18px"><strong>행정부담 경험에 관한 질문 (Q11-1~Q11-3)</strong><p>다음은 산림탄소상쇄사업의 행정적 요건과 절차를 이해하고 이행하는 과정에서 경험한 부담에 관한 질문입니다. 귀하가 직접 수행하거나 지원한 업무 경험을 기준으로 응답해 주십시오. 다음 세 문항은 각각 하나씩 선택해 주세요.</p></div>
+<fieldset id="costQuestion1" style="border:1px solid #dce4e1;border-radius:12px;margin:14px 0;padding:14px 18px"><legend><strong>Q11-1. 산림탄소상쇄사업의 참여요건, 운영기준 및 행정절차를 이해하는 데 많은 시간과 노력이 들었다.</strong> <span class="requiredStar">*</span></legend><label class="checkline" style="margin:4px 0"><input type="radio" name="burdenCost1" value="1" onchange="saveBurden()"><span>전혀 그렇지 않다</span></label><label class="checkline" style="margin:4px 0"><input type="radio" name="burdenCost1" value="2" onchange="saveBurden()"><span>그렇지 않다</span></label><label class="checkline" style="margin:4px 0"><input type="radio" name="burdenCost1" value="3" onchange="saveBurden()"><span>보통이다</span></label><label class="checkline" style="margin:4px 0"><input type="radio" name="burdenCost1" value="4" onchange="saveBurden()"><span>그렇다</span></label><label class="checkline" style="margin:4px 0"><input type="radio" name="burdenCost1" value="5" onchange="saveBurden()"><span>매우 그렇다</span></label><label class="checkline" style="margin:4px 0"><input type="radio" name="burdenCost1" value="NA" onchange="saveBurden()"><span>판단할 만한 경험이 없다</span></label></fieldset>
+<fieldset id="costQuestion2" style="border:1px solid #dce4e1;border-radius:12px;margin:14px 0;padding:14px 18px"><legend><strong>Q11-2. 산림탄소상쇄사업에서 요구하는 신청서·보고서 작성, 증빙자료 준비 및 제출·보완 등의 행정적 요구사항을 이행하는 데 많은 시간과 노력이 들었다.</strong> <span class="requiredStar">*</span></legend><label class="checkline" style="margin:4px 0"><input type="radio" name="burdenCost2" value="1" onchange="saveBurden()"><span>전혀 그렇지 않다</span></label><label class="checkline" style="margin:4px 0"><input type="radio" name="burdenCost2" value="2" onchange="saveBurden()"><span>그렇지 않다</span></label><label class="checkline" style="margin:4px 0"><input type="radio" name="burdenCost2" value="3" onchange="saveBurden()"><span>보통이다</span></label><label class="checkline" style="margin:4px 0"><input type="radio" name="burdenCost2" value="4" onchange="saveBurden()"><span>그렇다</span></label><label class="checkline" style="margin:4px 0"><input type="radio" name="burdenCost2" value="5" onchange="saveBurden()"><span>매우 그렇다</span></label><label class="checkline" style="margin:4px 0"><input type="radio" name="burdenCost2" value="NA" onchange="saveBurden()"><span>판단할 만한 경험이 없다</span></label></fieldset>
+<fieldset id="costQuestion3" style="border:1px solid #dce4e1;border-radius:12px;margin:14px 0;padding:14px 18px"><legend><strong>Q11-3. 산림탄소상쇄사업의 행정절차를 이행하는 과정에서 스트레스나 심리적 부담을 경험했다.</strong> <span class="requiredStar">*</span></legend><label class="checkline" style="margin:4px 0"><input type="radio" name="burdenCost3" value="1" onchange="saveBurden()"><span>전혀 그렇지 않다</span></label><label class="checkline" style="margin:4px 0"><input type="radio" name="burdenCost3" value="2" onchange="saveBurden()"><span>그렇지 않다</span></label><label class="checkline" style="margin:4px 0"><input type="radio" name="burdenCost3" value="3" onchange="saveBurden()"><span>보통이다</span></label><label class="checkline" style="margin:4px 0"><input type="radio" name="burdenCost3" value="4" onchange="saveBurden()"><span>그렇다</span></label><label class="checkline" style="margin:4px 0"><input type="radio" name="burdenCost3" value="5" onchange="saveBurden()"><span>매우 그렇다</span></label><label class="checkline" style="margin:4px 0"><input type="radio" name="burdenCost3" value="NA" onchange="saveBurden()"><span>판단할 만한 경험이 없다</span></label></fieldset>
+<p class="note">※ Q12~Q15와 Q17~Q18에서 ‘해당 없음’, ‘판단할 만한 경험이 없음’, ‘지원 필요 없음’, ‘판단하기 어려움’ 등은 다른 항목과 함께 선택할 수 없습니다.</p>
 <h3 class="experienceQuestion">시간이나 노력이 많이 드는 업무를 3개까지 선택해 주세요. <span class="note">(복수 선택 가능 · 최대 3개)</span> <span class="requiredStar">*</span></h3><div class="tasklist" id="timeTasks"></div>
 <h3 class="experienceQuestion">가장 어렵거나 전문적 판단이 필요한 업무를 3개까지 선택해 주세요. <span class="note">(복수 선택 가능 · 최대 3개)</span> <span class="requiredStar">*</span></h3><div class="tasklist" id="hardTasks"></div>
 <h3 class="experienceQuestion">실수하거나 누락하기 쉬운 업무를 3개까지 선택해 주세요. <span class="note">(복수 선택 가능 · 최대 3개)</span> <span class="requiredStar">*</span></h3><div class="tasklist" id="errorTasks"></div>
@@ -487,13 +513,13 @@ function navTo(id){
 }
 function consentValid(){return $("consentResearch").checked && $("consentData").checked;}
 function workflowValid(){return !!(st.workflowOverall?.rating && tasks.every(t=>st.reviews[t.id]?.judgment));}
-function burdenPhaseValid(){const b=st.burden||{};return !!(b.duration && b.time?.length && b.hard?.length && b.error?.length && b.repeat?.length);}
+function burdenPhaseValid(){const b=st.burden||{};return !!(b.duration && b.cost_learning && b.cost_compliance && b.cost_psychological && b.time?.length && b.hard?.length && b.error?.length && b.repeat?.length);}
 function digitalValid(){const b=st.burden||{};return !!(b.digital?.length && b.support?.length);}
 function contactValid(){const phone=$("phone").value.replace(/[^0-9]/g,"");const e=$("email").value.trim();return !!($("giftName").value.trim() && /^01[0-9]{8,9}$/.test(phone) && (!e||/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)));}
 function saveContact(){st.contact={name:$("giftName").value.trim(),phone:$("phone").value.trim(),email:$("email").value.trim(),interviewOptIn:$("interviewYes").checked,interviewChoice:$("interviewYes").checked?"yes":$("interviewNo").checked?"no":"",interviewNote:$("interviewNote").value.trim()};persist();}
 function nextFromIncentive(){const issues=contactIssues();if(issues.length)return showValidationAlert(issues,"incentive");saveContact();navigate("confirm");}
 function renderChecklist(){
- const rows=[["연구 참여 및 개인정보 동의",consentValid()],["응답자 기본정보",respondentValid()],["업무지도 검토 T01~T15",workflowValid()],["업무부담 Q11~Q16",burdenPhaseValid()],["디지털 지원 수요 Q17~Q18",digitalValid()],["사례비 지급 연락정보",contactValid()]];
+ const rows=[["연구 참여 및 개인정보 동의",consentValid()],["응답자 기본정보",respondentValid()],["업무지도 검토 T01~T15",workflowValid()],["업무부담 Q11~Q16·행정부담 3문항",burdenPhaseValid()],["디지털 지원 수요 Q17~Q18",digitalValid()],["사례비 지급 연락정보",contactValid()]];
  $("completionChecklist").innerHTML=rows.map(([n,ok])=>`<div class="status-line"><span>${n}</span><span class="${ok?"good":"bad"}">${ok?"완료":"확인 필요"}</span></div>`).join("");
 }
 
@@ -579,9 +605,10 @@ function workflowIssues(){
 }
 function experienceIssues(){
  saveBurden();const b=st.burden||{};
- return [['duration','Q11. 사업 준비·등록 소요기간','duration'],['time','Q12. 시간·노력이 많이 드는 업무','timeTasks'],['hard','Q13. 전문적 판단이 필요한 업무','hardTasks'],['error','Q14. 실수·누락하기 쉬운 업무','errorTasks'],['repeat','Q15. 반복적으로 발생하는 작업','repeatChecks']]
+ const costIssues=[["cost_learning","Q11-1. 학습비용 경험","costQuestion1"],["cost_compliance","Q11-2. 준수비용 경험","costQuestion2"],["cost_psychological","Q11-3. 심리적 부담 경험","costQuestion3"]].filter(([key])=>!b[key]).map(([key,name,target])=>({message:name+"에 응답해 주세요.",target}));
+ return costIssues.concat([['duration','Q11. 사업 준비·등록 소요기간','duration'],['time','Q12. 시간·노력이 많이 드는 업무','timeTasks'],['hard','Q13. 전문적 판단이 필요한 업무','hardTasks'],['error','Q14. 실수·누락하기 쉬운 업무','errorTasks'],['repeat','Q15. 반복적으로 발생하는 작업','repeatChecks']]
    .filter(([key])=>Array.isArray(b[key])?!b[key].length:!b[key])
-   .map(([key,name,target])=>({message:name+'에 응답해 주세요.',target}));
+   .map(([key,name,target])=>({message:name+'에 응답해 주세요.',target})));
 }
 function digitalIssues(){
  saveBurden();const b=st.burden||{};
@@ -601,7 +628,7 @@ function nextFromConsent(){
   showConsentAlert();
   return;
  }
- st.consent={research:true,data:true,documents_opened:{research:true,privacy:true},at:new Date().toISOString(),document_version:"연구대상자용 설명문 및 동의서 ver.1.0",privacy_document_version:"개인정보 수집 및 이용 동의서 온라인 설문조사용",survey_version:"v0.33",irb_approval_number:CONFIG.IRB_APPROVAL_NUMBER,method:"two_separate_yes_no_decisions"};persist();navigate("respondent");
+ st.consent={research:true,data:true,documents_opened:{research:true,privacy:true},at:new Date().toISOString(),document_version:"연구대상자용 설명문 및 동의서 ver.2.0",privacy_document_version:"개인정보 수집 및 이용 동의서 온라인 설문조사용",survey_version:"IRB-v1.1-web-cover-v2",irb_approval_number:CONFIG.IRB_APPROVAL_NUMBER,method:"two_separate_yes_no_decisions"};persist();navigate("respondent");
 }
 
 function toggleOther(selectId, inputId){
@@ -762,10 +789,43 @@ function nextFromWorkflow(){
 
 function addMissing(){let m={pos:$("npos").value.trim(),title:$("ntitle").value.trim(),desc:$("ndesc").value.trim()};if(!m.title)return alert("업무명을 입력해 주세요.");st.missing.push(m);["npos","ntitle","ndesc"].forEach(i=>$(i).value="");persist();renderMissing();}
 function renderMissing(){$("missing").innerHTML=st.missing.length?st.missing.map(m=>`<div style="padding:7px 0"><b>${escapeHtml(m.title)}</b> · ${escapeHtml(m.pos||"위치 미지정")} — ${escapeHtml(m.desc)}</div>`).join(""):"아직 추가된 업무가 없습니다.";}
-function taskPicker(container,key){$ (container).innerHTML=tasks.map(t=>`<label class="taskpick"><input type="checkbox" data-key="${key}" value="${t.id}" onchange="pickMax3(this,'${key}')"><span><b>${t.id} ${t.title}</b><br><span class="note">${t.phase_label}</span></span></label>`).join("");}
-function pickMax3(el,key){let a=[...document.querySelectorAll(`input[data-key="${key}"]:checked`)];if(a.length>3){el.checked=false;alert("3개까지 선택할 수 있습니다.");}saveBurden();}
-const repeats=["동일 정보 반복 입력","여러 문서 간 복사·붙여넣기","자료·증빙파일 찾기","최신 기준·방법론 확인","계산용 데이터 재가공","담당기관에 문의","보완의견 확인 및 수정","파일 버전 관리","과거 사업자료 찾기","일정·기한 관리","기타"];
-const supports=["내 사업에 필요한 업무 자동 안내","필요 서류·증빙 체크리스트","기준·방법론 쉽게 설명","사업정보 한 번 입력 후 재사용","탄소량 산정자료 자동 정리","사업계획서 작성 지원","보완의견 대응 지원","파일·사업이력 관리","모니터링 일정 알림","기타"];
+const taskSpecial={
+ time:["해당 없음(질문에 해당하는 업무가 없음)","판단할 만한 경험이 없음"],
+ hard:["해당 없음(질문에 해당하는 업무가 없음)","판단할 만한 경험이 없음"],
+ error:["해당 없음(질문에 해당하는 업무가 없음)","판단할 만한 경험이 없음"],
+ digital:["지원 필요 없음","판단하기 어려움"]
+};
+const exclusiveValues=new Set([
+ "해당 없음(질문에 해당하는 업무가 없음)","판단할 만한 경험이 없음",
+ "해당 없음(반복적으로 발생하는 작업이 없음)","지원 필요 없음",
+ "필요한 지원 없음","판단하기 어려움"
+]);
+function applyExclusive(el,selector){
+ const group=[...document.querySelectorAll(selector)];
+ if(!el.checked)return;
+ if(exclusiveValues.has(el.value)){
+   group.forEach(x=>{if(x!==el)x.checked=false;});
+ }else{
+   group.filter(x=>exclusiveValues.has(x.value)).forEach(x=>x.checked=false);
+ }
+}
+function taskPicker(container,key){
+ const normal=tasks.map(t=>`<label class="taskpick"><input type="checkbox" data-key="${key}" value="${t.id}" onchange="pickMax3(this,'${key}')"><span><b>${t.id} ${t.title}</b><br><span class="note">${t.phase_label}</span></span></label>`).join("");
+ const extra=(taskSpecial[key]||[]).map(v=>`<label class="taskpick"><input type="checkbox" data-key="${key}" value="${v}" onchange="pickMax3(this,'${key}')"><span><b>${v}</b></span></label>`).join("");
+ $(container).innerHTML=normal+extra;
+}
+function pickMax3(el,key){
+ applyExclusive(el,`input[data-key="${key}"]`);
+ let a=[...document.querySelectorAll(`input[data-key="${key}"]:checked`)];
+ if(a.length>3){el.checked=false;alert("3개까지 선택할 수 있습니다.");}
+ saveBurden();
+}
+function onMultipleChoice(el,kind){
+ applyExclusive(el,`input[data-${kind}]`);
+ saveBurden();
+}
+const repeats=["동일 정보 반복 입력","여러 문서 간 복사·붙여넣기","자료·증빙파일 찾기","최신 기준·방법론 확인","계산용 데이터 재가공","담당기관에 문의","보완의견 확인 및 수정","파일 버전 관리","과거 사업자료 찾기","일정·기한 관리","기타","해당 없음(반복적으로 발생하는 작업이 없음)","판단할 만한 경험이 없음"];
+const supports=["내 사업에 필요한 업무 자동 안내","필요 서류·증빙 체크리스트","기준·방법론 쉽게 설명","사업정보 한 번 입력 후 재사용","탄소량 산정자료 자동 정리","사업계획서 작성 지원","보완의견 대응 지원","파일·사업이력 관리","모니터링 일정 알림","기타","필요한 지원 없음","판단하기 어려움"];
 const aiTasks=["제도·기준·방법론 검색 또는 설명","사업계획서 등 문서 작성·수정","문서 요약·정리","자료·데이터 정리","탄소량 산정 관련 도움","보완의견 대응","아이디어·초안 작성","기타"];
 const aiDifficulties=["최신 기준·방법론 확인","근거·출처 확인","사업별 맥락 유지","자료·파일 관리","탄소량 산정의 정확성 확인","여러 문서 간 정보 일관성 유지","개인·기관정보 입력에 대한 부담","기타"];
 function saveAI(){
@@ -785,13 +845,14 @@ function renderAI(){
  }
 }
 function renderChecks(){
- $("repeatChecks").innerHTML=repeats.map(x=>`<label class="checkline"><input type="checkbox" data-repeat value="${x}" onchange="saveBurden()"><span>${x}</span></label>`).join("");
- $("supportChecks").innerHTML=supports.map(x=>`<label class="checkline"><input type="checkbox" data-support value="${x}" onchange="saveBurden()"><span>${x}</span></label>`).join("");
+ $("repeatChecks").innerHTML=repeats.map(x=>`<label class="checkline"><input type="checkbox" data-repeat value="${x}" onchange="onMultipleChoice(this,'repeat')"><span>${x}</span></label>`).join("");
+ $("supportChecks").innerHTML=supports.map(x=>`<label class="checkline"><input type="checkbox" data-support value="${x}" onchange="onMultipleChoice(this,'support')"><span>${x}</span></label>`).join("");
 }
 function saveBurden(){
  toggleCheckedOther("input[data-repeat]","repeatOther");toggleCheckedOther("input[data-support]","supportOther");
  const get=k=>[...document.querySelectorAll(`input[data-key="${k}"]:checked`)].map(x=>x.value);
- st.burden={repeatOther:$("repeatOther").value.trim(),supportOther:$("supportOther").value.trim(),duration:$("duration").value,time:get("time"),hard:get("hard"),error:get("error"),digital:get("digital"),repeat:[...document.querySelectorAll("input[data-repeat]:checked")].map(x=>x.value),support:[...document.querySelectorAll("input[data-support]:checked")].map(x=>x.value),hardestText:$("hardestText").value};persist();
+ const costRatings=[1,2,3].map(i=>document.querySelector(`input[name="burdenCost${i}"]:checked`)?.value||"");
+ st.burden={cost_learning:costRatings[0],cost_compliance:costRatings[1],cost_psychological:costRatings[2],repeatOther:$("repeatOther").value.trim(),supportOther:$("supportOther").value.trim(),duration:$("duration").value,time:get("time"),hard:get("hard"),error:get("error"),digital:get("digital"),repeat:[...document.querySelectorAll("input[data-repeat]:checked")].map(x=>x.value),support:[...document.querySelectorAll("input[data-support]:checked")].map(x=>x.value),hardestText:$("hardestText").value};persist();
 }
 $("duration").addEventListener("change",saveBurden);$("hardestText").addEventListener("input",saveBurden);
 function burdenValid(){return burdenPhaseValid()&&digitalValid();}
@@ -810,6 +871,11 @@ function renderExperiencePage(){
 
   // Restore saved values where possible.
   if(st.burden){
+    [["burdenCost1","cost_learning"],["burdenCost2","cost_compliance"],["burdenCost3","cost_psychological"]].forEach(([group,key])=>{
+      const val=st.burden[key]||"";
+      const radio=[...document.querySelectorAll(`input[name="${group}"]`)].find(x=>x.value===val);
+      if(radio)radio.checked=true;
+    });
     if(st.burden.duration) $("duration").value=st.burden.duration;
     if(st.burden.hardestText) $("hardestText").value=st.burden.hardestText;
     const restore=(key,vals=[])=>{
